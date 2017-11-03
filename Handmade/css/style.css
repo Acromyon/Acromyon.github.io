@@ -461,7 +461,39 @@ hr {
 .reviews__title {
   font-size: 24px;
   letter-spacing: 0.7px;
-  float: left; }
+  float: left;
+  margin-right: 18px; }
+
+.reviews__score {
+  width: 100px;
+  position: relative;
+  top: 3px; }
+
+.reviews__score-progress {
+  background-color: #FFC938;
+  height: 18px;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.reviews__score-stars {
+  height: 18px;
+  font-size: 0;
+  position: relative;
+  letter-spacing: normal;
+  width: 100px; }
+
+[class*="reviews__score-star_"] {
+  background: url("../svg/Score-Star.svg") no-repeat;
+  background-position: -3px -2px;
+  width: 20px;
+  height: 18px;
+  display: inline-block;
+  list-style-type: none;
+  cursor: pointer; }
+
+[class*="reviews__score-star_"]:hover, .reviews__score-star_sub-hover, .reviews__score-star_active {
+  background-position: -3px -20px; }
 
 .reviews__sort {
   font-size: 15px;
@@ -486,13 +518,16 @@ hr {
   color: #222; }
 
 .reviews__comment-info {
-  margin: 11px 0 37px;
+  margin: 7px 0 37px;
   font-size: 14px;
   letter-spacing: 0.4px;
   color: #aaa; }
 
 .reviews__comment-name::after {
   content: ","; }
+
+.reviews__comment-date {
+  margin-right: 25px; }
 
 .reviews__sort-like, .reviews__sort-date, .reviews__sort-score, .reviews__sort-options, .reviews__comment-name, .reviews__comment-date, .reviews__score {
   display: inline-block; }
@@ -683,6 +718,11 @@ hr {
   height: 21px;
   background: url("../img/sprite-social-icons-footer.png") no-repeat;
   margin: 13px 0 0 32px; }
+
+.footer__social-link a {
+  width: 100%;
+  height: 100%;
+  display: inline-block; }
 
 .pinterest {
   background-position: 2px 2px; }
