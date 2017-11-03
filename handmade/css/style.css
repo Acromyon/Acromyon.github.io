@@ -464,6 +464,9 @@ hr {
   float: left;
   margin-right: 18px; }
 
+.review__top-panel .reviews__score {
+  top: 6px; }
+
 .reviews__score {
   width: 100px;
   position: relative;
