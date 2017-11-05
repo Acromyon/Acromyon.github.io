@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Simple Calculator</title>
+		<style>
+		@font-face {
+					font-family: "Press Start 2P";
+					src: url('fonts/PressStart2P-Regular.ttf');
+					src: url('fonts/PressStart2P-Regular.eot');
+					src: url('fonts/PressStart2P-Regular.woff');
+					}
+		@font-face {
+					font-family: "Arial Black";
+					src: url('fonts/ArialBlack.woff');
+					}
+		</style>
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<script type="text/javascript" defer src="js/main.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="container">
+
+<!-- Логотип -->
+
+				<div class="logo">
+					<a href="https://ru.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BB%D1%8C%D0%BA%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80" class="logo__link" target="_blank">
+						<h1 class="logo__name">Простой<br>Калькулятор</h1>
+						<p class="logo__delimiter">___________</p>
+					</a>
+				</div>
+				<div class="main-section">
+
+<!-- Калькулятор -->
+
+					<div class="counter">
+						<div class="counter__display">
+							<input class="counter__display-input" id="display" type="text" value="0" readonly>
+						</div>
+						<table class="counter__btns">
+							<tr>
+								<td>
+									<button class="counter__btn clear-btn" id="clear-all">
+										<img class="counter__img" id="clear-creeper" src="img/creeper.svg" alt="creeper">
+									</button>
+								</td>
+								<td><button class="counter__btn clear-btn" id="clear-entry">CE</button></td>
+								<td><button class="counter__btn" id="backspace">←</button></td>
+								<td><button class="counter__btn operator">&#247;</button></td>
+							</tr>
+							<tr>
+								<td><button class="counter__btn digit">7</button></td>
+								<td><button class="counter__btn digit">8</button></td>
+								<td><button class="counter__btn digit">9</button></td>
+								<td><button class="counter__btn operator">&#215;</button></td>
+							</tr>
+							<tr>
+								<td><button class="counter__btn digit">4</button></td>
+								<td><button class="counter__btn digit">5</button></td>
+								<td><button class="counter__btn digit">6</button></td>
+								<td><button class="counter__btn operator">-</button></td>
+							</tr>
+							<tr>
+								<td><button class="counter__btn digit">1</button></td>
+								<td><button class="counter__btn digit">2</button></td>
+								<td><button class="counter__btn digit">3</button></td>
+								<td><button class="counter__btn operator">+</button></td>
+							</tr>
+							<tr>
+								<td colspan="2"><button class="counter__btn counter__btn_lg digit">0</button></td>
+								<td><button class="counter__btn" id="comma">,</button></td>
+								<td><button class="counter__btn operator">=</button></td>
+							</tr>
+						</table>
+					</div>
+					<input type="text" class="focus-debug" autofocus readonly>
+
+<!-- Инфоблок -->
+
+					<div class="notation">
+						<h2 class="notation__name">Промежуточные Значения</h2>
+						<ul class="notation__list">
+							<li class="notation__list-item">
+								<button class="notation__btn save-data"><p></p></button>
+								<input class="notation__input" type="text" value="" readonly>
+							</li>
+						</ul>
+						<p class="signature"><a href="https://vk.com/dendomrachev" target="blank">created by<br>Den Domrachev</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="sound-toggle"></div>
+		</div>
+	</body>
+</html>

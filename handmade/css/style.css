@@ -505,16 +505,22 @@ hr {
   letter-spacing: 0.4px; }
 
 .reviews__sort-date, .reviews__sort-score {
-  cursor: pointer; }
+  cursor: pointer;
+  -webkit-border-radius: 16px;
+          border-radius: 16px;
+  padding: 4px 10px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
 
 .reviews__sort-score {
-  margin-left: 4px; }
+  margin: 0 -9px; }
 
 .reviews__sort_selected {
-  padding: 4px 10px;
   background-color: #fff;
-  -webkit-border-radius: 16px;
-  border-radius: 16px; }
+  -webkit-transition: 0.3s;
+  transition: 0.3s; }
 
 .reviews__comment {
   letter-spacing: 0.45px;
