@@ -1,5 +1,3 @@
-'use strict';
-
 /* Зёздный рейтинг */
 
 const scoreStars = document.querySelectorAll('[class*=reviews__score-star_]');
