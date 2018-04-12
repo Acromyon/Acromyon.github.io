@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Simply Travel</title>
+	<link href="css/bootstrap-custom.min.css" rel="stylesheet" type="text/css">
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/main.min.css" rel="stylesheet" type="text/css">
+	<link href="favicon.ico" rel="icon" type="image/x-icon">
+	<script src="js/jquery-3.2.1.min.js" defer></script>
+	<script src="js/common.min.js" defer></script>
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	<script>
+		// Picture element HTML5 shiv
+		document.createElement('picture');
+	</script>
+	<script src="js/picturefill-3.0.2.js" async></script>
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="inner-header container clearfix">
+				<div class="row">
+					<a href="#" class="header__logo-link col-xs-6">
+						<picture>
+							<source srcset="img/icons/logo.png" media="(min-width: 992px)">
+							<img srcset="img/icons/logo-min.png" alt="" class="header__logo-img">
+						</picture>
+					</a>
+					<div class="col-md-6 col-lg-offset-2 col-lg-4 hidden-xs hidden-sm">
+						<div class="header__contacts">
+							<div class="header__contacts-phone"><i class="fa fa-phone header__contacts-phone-ico" aria-hidden="true"></i> 954214510322</div>
+							<div class="header__contacts-social">
+								<a href="#"><i class="fa fa-facebook header__contacts-social-ico" aria-hidden="true"></i></a>
+								<a href="#"><i class="fa fa-twitter header__contacts-social-ico" aria-hidden="true"></i></a>
+								<a href="#"><i class="fa fa-google-plus header__contacts-social-ico" aria-hidden="true"></i></a>
+							</div>
+							<button class="header__contacts-language">EN <i class="fa fa-sort-desc header__contacts-language-ico" aria-hidden="true"></i></button>
+						</div>
+					</div>
+					<div class="col-xs-6 hidden-md hidden-lg">
+						<button class="header__menu-btn" id="header__menu-btn">
+							<div class="header__menu-btn-dash"></div>
+							<div class="header__menu-btn-dash"></div>
+							<div class="header__menu-btn-dash"></div>
+						</button>
+					</div>
+				</div>
+			</div>
+			<hr class="header__delimiter hidden-xs hidden-sm">
+			<div class="header__menu header__menu_hidden container clearfix" id="header__menu">
+				<ul class="header__menu-list">
+					<li class="header__menu-item"><a class="header__menu-link" href="#">Ana səhifə</a></li>
+					<li class="header__menu-item"><a class="header__menu-link" href="#">Turlar</a></li>
+					<li class="header__menu-item"><a class="header__menu-link" href="#">Gəmi turları</a></li>
+					<li class="header__menu-item"><a class="header__menu-link" href="#">Hotellər</a></li>
+					<li class="header__menu-item"><a class="header__menu-link" href="#">Xarixi hotellər</a></li>
+					<li class="header__menu-item"><a class="header__menu-link" href="#">Haqqımızda</a></li>
+					<li class="header__menu-item"><a class="header__menu-link" href="#">Əlaqə</a></li>
+				</ul>
+			</div>
+		</header>
+		<section class="choose-city clearfix">
+			<div class="container">
+				<div class="row">
+					<p class="col-xs-6 choose-city__search-result"><strong>Axtarışın nəticəsi</strong></p>
+					<p class="col-xs-6 choose-city__current">Ana səhifə / <strong>Antalya</strong></p>
+				</div>
+			</div>
+		</section>
+		<section class="main container clearfix">
+			<div class="row">
+				<aside class="filter col-xs-12 col-md-4">
+					<div class="filter__inner">
+						<div class="filter__title">Nəticələri filtirlə</div>
+						<div class="filter__control">
+							<div class="filter__results">15 nəticə</div>
+							<i class="fa fa-angle-down filter__drop-down-options hidden-md hidden-lg" id="filter__drop-down" aria-hidden="true"></i>
+						</div>
+						<div id="filter__common-options-block" class="filter__common-options-block">
+							<hr class="filter__delimiter">
+							<div class="filter__option-block">
+								<input class="filter__option" type="checkbox">
+								<p class="filter__option-description">Qiymətə görə</p>
+							</div>
+							<div class="filter__option-block">
+								<input class="filter__option" type="checkbox">
+								<p class="filter__option-description">Parking</p>
+							</div>
+							<div class="filter__option-block">
+								<input class="filter__option" type="checkbox">
+								<p class="filter__option-description">Breakfast</p>
+							</div>
+							<p class="filter__hotel-service">Otel xüsusiyyətləri</p>
+							<div class="filter__option-block">
+								<input class="filter__option" type="checkbox">
+								<p class="filter__option-description">Qapalı hovuz</p>
+							</div>
+							<div class="filter__option-block">
+								<input class="filter__option" type="checkbox">
+								<p class="filter__option-description">Açıq hovuz</p>
+							</div>
+							<div class="filter__option-block">
+								<input class="filter__option" type="checkbox">
+								<p class="filter__option-description">Wi-fi</p>
+							</div>
+							<div class="filter__option-block">
+								<input class="filter__option" type="checkbox">
+								<p class="filter__option-description">Tv</p>
+							</div>
+							<div class="filter__option-block">
+								<input class="filter__option" type="checkbox">
+								<p class="filter__option-description">Animation team</p>
+							</div>
+							<div class="filter__option-block">
+								<input class="filter__option" type="checkbox">
+								<p class="filter__option-description">Kids club</p>
+							</div>
+							<div class="filter__option-block">
+								<input class="filter__option" type="checkbox">
+								<p class="filter__option-description">Shuttle bus</p>
+							</div>
+						</div>
+					</div>
+				</aside>
+				<div class="search-result col-xs-12 col-md-8">
+					<div class="search-result__block">
+						<picture>
+							<source srcset="img/hotel-photo/hotel-photo-1-md.png" media="(min-width: 992px)">
+							<img srcset="img/hotel-photo/hotel-photo-1.png" alt="" class="search-result__img">
+						</picture>
+						<div class="search-result__inner-block">
+							<p class="search-result__cost"><span class="search-result__cost-mark">150</span> <span class="hidden-md hidden-lg">/</span> <span class="search-result__cost-person">1 nəfər günlük</span></p>
+							<p class="search-result__hotel-name"><strong>Abşeron Hotel</strong></p>
+							<p class="search-result__location">Bakı / Azərbaycan</p>
+							<ul class="search-result__hotel-rating">
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+							</ul>
+							<p class="search-result__description hidden-xs hidden-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+						</div>
+					</div>
+					<div class="search-result__block">
+						<picture>
+							<source srcset="img/hotel-photo/hotel-photo-2-md.png" media="(min-width: 992px)">
+							<img srcset="img/hotel-photo/hotel-photo-2.png" alt="" class="search-result__img">
+						</picture>
+						<div class="search-result__inner-block">
+							<p class="search-result__cost"><span class="search-result__cost-mark">130</span> <span class="hidden-md hidden-lg">/</span> <span class="search-result__cost-person">1 nəfər günlük</span></p>
+							<p class="search-result__hotel-name"><strong>Hilton Baku</strong></p>
+							<p class="search-result__location">Bakı / Azərbaycan</p>
+							<ul class="search-result__hotel-rating">
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+							</ul>
+							<p class="search-result__description hidden-xs hidden-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+						</div>
+					</div>
+					<div class="search-result__block">
+						<picture>
+							<source srcset="img/hotel-photo/hotel-photo-3-md.png" media="(min-width: 992px)">
+							<img srcset="img/hotel-photo/hotel-photo-3.png" alt="" class="search-result__img">
+						</picture>
+						<div class="search-result__inner-block">
+							<p class="search-result__cost"><span class="search-result__cost-mark">56</span> <span class="hidden-md hidden-lg">/</span> <span class="search-result__cost-person">1 nəfər günlük</span></p>
+							<p class="search-result__hotel-name"><strong>Ramada</strong></p>
+							<p class="search-result__location">Bakı / Azərbaycan</p>
+							<ul class="search-result__hotel-rating">
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star search-result__star_hidden"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star search-result__star_hidden"><i class="fa fa-star" aria-hidden="true"></i></li>
+							</ul>
+							<p class="search-result__description hidden-xs hidden-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+						</div>
+					</div>
+					<div class="search-result__block">
+						<picture>
+							<source srcset="img/hotel-photo/hotel-photo-4-md.png" media="(min-width: 992px)">
+							<img srcset="img/hotel-photo/hotel-photo-4.png" alt="" class="search-result__img">
+						</picture>
+						<div class="search-result__inner-block">
+							<p class="search-result__cost"><span class="search-result__cost-mark">73</span> <span class="hidden-md hidden-lg">/</span> <span class="search-result__cost-person">1 nəfər günlük</span></p>
+							<p class="search-result__hotel-name"><strong>HYATT IN</strong></p>
+							<p class="search-result__location">Bakı / Azərbaycan</p>
+							<ul class="search-result__hotel-rating">
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star search-result__star_hidden"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star search-result__star_hidden"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star search-result__star_hidden"><i class="fa fa-star" aria-hidden="true"></i></li>
+							</ul>
+							<p class="search-result__description hidden-xs hidden-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+						</div>
+					</div>
+					<div class="search-result__block hidden-md hidden-lg">
+						<picture>
+							<source srcset="img/hotel-photo/hotel-photo-5.png" media="(min-width: 992px)">
+							<img srcset="img/hotel-photo/hotel-photo-5.png" alt="" class="search-result__img">
+						</picture>
+						<div class="search-result__inner-block">
+							<p class="search-result__cost"><span class="search-result__cost-mark">99</span> <span class="hidden-md hidden-lg">/</span> <span class="search-result__cost-person">1 nəfər günlük</span></p>
+							<p class="search-result__hotel-name"><strong>GRAND PASA</strong></p>
+							<p class="search-result__location">Antalya / Turkey</p>
+							<ul class="search-result__hotel-rating">
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star"><i class="fa fa-star" aria-hidden="true"></i></li>
+								<li class="search-result__star search-result__star_hidden"><i class="fa fa-star" aria-hidden="true"></i></li>
+							</ul>
+							<p class="search-result__description hidden-xs hidden-sm">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="social-links clearfix">
+			<div class="container">
+				<div class="row">
+					<a href="#" class="col-xs-6">
+						<picture>
+							<source srcset="img/icons/logo.png" media="(min-width: 992px)">
+							<img srcset="img/icons/logo-min.png" alt="" class="social-links__logo-img">
+						</picture>
+					</a>
+					<div class="col-xs-6">
+						<a href="#"><i class="fa fa-google-plus social-links__ico" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-twitter social-links__ico" aria-hidden="true"></i></a>
+						<a href="#"><i class="fa fa-facebook social-links__ico" aria-hidden="true"></i></a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="contacts clearfix">
+			<div class="container">
+				<div class="row all-hotells hidden-xs hidden-sm clearfix">
+					<div class="all-hotels__list col-md-2">
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Antalya Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Alanya Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Alaçatı Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Ağva Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Ayvalık Otelleri</a></li>
+					</div>
+					<div class="all-hotels__list col-md-2">
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Amasra Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Ankara Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Assos Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Belek Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Bodrum Otelleri</a></li>
+					</div>
+					<div class="all-hotels__list col-md-2">
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Kemer Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Kuşadası Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Marmaris Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Mersin Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Sapanca Otelleri</a></li>
+					</div>
+					<div class="all-hotels__list col-md-2">
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Datça Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Eskişehir Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Fethiye Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">İzmir Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">İstanbul Otelleri</a></li>
+					</div>
+					<div class="all-hotels__list col-md-2">
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Side Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Şile Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Uludağ Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Kapadokya Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Kaş Otelleri</a></li>
+					</div>
+					<div class="all-hotels__list col-md-2">
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Bozcaada Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Bursa Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Büyükada Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Çeşme Otelleri</a></li>
+						<li class="all-hotels__item"><a href="#" class="all-hotels__link">Didim Otelleri</a></li>
+					</div>
+				</div>
+				<div class="row">
+						<div class="contacts__phones col-md-3">
+							<p class="contacts__title"><strong>Əlaqə vasitələri</strong></p>
+							<div class="contacts__phone">
+								<p class="contacts__phone-number"><i class="fa fa-phone contacts__phone-ico" aria-hidden="true"></i>+ 994 (12) 123 456 7890</p>
+							</div>
+							<div class="contacts__phone">
+								<p class="contacts__phone-number"><i class="fa fa-mobile contacts__phone-ico contacts__phone-ico_mob" aria-hidden="true"></i>+ 994 (55) 123 456 7890</p>
+							</div>
+						</div>
+						<div class="contacts__location col-md-4">
+							<p class="contacts__location-address"><i class="fa fa-map-marker contacts__location-ico" aria-hidden="true"></i>Yasamal rayonu A.M.Şərifzadə küçəsi</p>
+							<p class="contacts__location-address">Bakı / Azərbaycan - Az1000</p>
+						</div>
+					<div class="work-time container col-md-5 clearfix">
+						<p class="work-time__title"><strong>İş saatları</strong></p>
+						<div class="work-time__block">
+							<p class="work-time__weekdays"><i class="fa fa-clock-o work-time__ico" aria-hidden="true"></i>Həftə içi <span class="oblonge-gap">-</span> saat 09:00 dan / 20:00 dək</p>
+							<p class="work-time__weekend">Şənbə, bazar <span class="oblonge-gap">-</span> saat 10:00 dan / 16:00 dək</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<footer class="footer">
+		<div class="inner-footer container">
+			<div class="row">
+				<div class="col-xs-6">
+					<p class="footer__copyright">Copyright 2017</p>
+				</div>
+				<div class="col-xs-6 col-padding-left-none">
+					<div class="mob-app-icons">
+						<a href="#" class="mob-app-icons__google-play"></a>
+						<a href="#" class="mob-app-icons__app-store"></a>
+					</div>
+					<div class="payment-icons hidden-xs hidden-sm">
+						<a href="#" class="payment-icons__visa"></a>
+						<a href="#" class="payment-icons__master-card"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+/* Адаптивка */
+
+/* Small devices (tablets, 768px and up) */
+
+@media screen and (min-width: 768px)
+	.header__menu
+		width: 336px
+
+	.header__menu-item
+		width: 336px
+
+/* Medium devices (desktops, 992px and up) */
+
+@media screen and (min-width: 992px)
+	.wrapper
+		min-height: calc(100vh - 98px)
+
+	.header
+		position: static
+		border: none
+
+	.inner-header
+		height: 67px
+
+	.header__menu
+		position: static
+		border: none
+		width: 970px
+
+	.header__menu-item
+		display: inline-block
+		border-bottom: none
+		width: 96px
+
+	.choose-city
+		height: 104px
+		border-bottom: 0
+		background: #efefef // Old browsers
+		background: -moz-linear-gradient(top, #e3e3e3 1%, #efefef 20%, #efefef 20%, #efefef 100%) // FF3.6-15
+		background: -webkit-linear-gradient(top, #e3e3e3 1%,#efefef 20%,#efefef 20%,#efefef 100%) // Chrome10-25,Safari5.1-6
+		background: linear-gradient(to bottom, #e3e3e3 1%,#efefef 20%,#efefef 20%,#efefef 100%) // W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e3e3e3', endColorstr='#efefef',GradientType=0 ) // IE6-9
+		margin-top: 0
+		margin-bottom: 30px
+
+	.choose-city__search-result, .choose-city__current
+		line-height: 104px
+		color: #333
+
+	.choose-city__search-result
+		font-size: 1.5556rem
+
+	.filter__hotel-service
+		margin: 24px 0 8px
+
+	.filter__common-options-block
+		padding-bottom: 15px
+
+	.search-result
+		margin-top: -18px
+
+	.search-result__block
+		margin-bottom: 22px
+
+	.search-result__img
+		margin-right: 14px
+		width: 212px !important
+		height: 170px !important
+
+	.search-result__inner-block
+		padding: 10px
+
+	.search-result__cost
+		float: right
+		position: static
+		text-align: center
+
+	.search-result__cost-mark
+		font-size: 1.2223rem
+		font-weight: bold
+
+
+	.search-result__cost-person
+		display: block
+
+	.social-links
+		margin: 43px 0 14px
+
+	.social-links__ico
+		line-height: 81px
+
+	.contacts__title, .work-time__title
+		margin-bottom: 12px
+
+	.contacts__location
+		margin-top: 46px
+
+	.footer
+		height: 52px
+		margin-top: 46px;
+
+	.footer__copyright, .mob-app-icons
+		line-height: 52px
+
+	.mob-app-icons__google-play, .mob-app-icons__app-store
+		background-image: url(../img/icons/footer-icons-sprite.png)
+		width: 79px
+		height: 30px
+
+	.mob-app-icons__google-play
+		margin-left: 33px
+
+	.mob-app-icons__app-store
+		background-position: -79px 0
+		margin-left: 19px
+
+/* Large devices (large desktops, 1200px and up) */
+
+@media screen and (min-width: 1200px)
+	.header__menu
+		width: 1170px

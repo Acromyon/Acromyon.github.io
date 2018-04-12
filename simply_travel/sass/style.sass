@@ -1,0 +1,447 @@
+@import reset
+
+/* Шрифты, базовые параметры и ClearFix */
+
+@font-face
+	font-family: 'Roboto'
+	src: url('../fonts/Roboto-Regular.eot')
+	src: url('../fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Regular.woff') format('woff'), url('../fonts/Roboto-Regular.ttf') format('truetype')
+
+html
+	background-color: #fff
+	font: 18px/1.45 "Source Sans Pro", sans-serif
+
+button:active
+	transform: scale(0.98)
+
+::selection
+	color: #ffd
+	background: #634a8a
+
+.wrapper
+	min-height: calc(100vh - 62px)
+
+.clearfix:after
+	content: ""
+	display: table
+	clear: both
+
+.col-padding-left-none
+	padding-left: 0
+
+.oblonge-gap
+	padding: 0 6px
+
+/* Блок хедера */
+.header
+	position: fixed
+	background-color: #fff
+	top: 0
+	z-index: 1
+	width: 100%
+	border-bottom: 2px solid #563d7c
+
+.inner-header
+	font-size: 0
+	background-color: #fff
+	height: 65px
+
+.header__logo-img
+	margin-top: 9px
+
+.header__contacts
+	float: right
+	margin-top: 16px
+
+.header__contacts-phone, .header__contacts-phone-ico, .header__contacts-social, .header__contacts-social-ico, .header__contacts-language, .header__contacts-language-ico
+	display: inline-block
+
+.header__contacts-social
+	margin-right: 42px
+	font-size: 0
+
+.header__contacts-social-ico
+	transition: 0.1s
+
+.header__contacts-social-ico:hover
+	color: #c4c4c4
+
+.header__contacts-phone-ico, .header__contacts-social-ico, .header__contacts-language-ico
+	font-size: 0.9445rem
+	color: #563d7c
+	position: relative
+	top: 2px
+	padding: 4px
+
+.header__contacts-phone
+	font-size: 0.8334rem
+	margin-right: 48px
+
+.header__contacts-phone-ico
+	font-size: 1rem
+	margin-right: 6px
+
+.header__contacts-language
+	background-color: transparent
+	padding: 6px 0
+	cursor: pointer
+
+.header__contacts-language-ico
+	top: -3px
+	font-size: 0.8334rem
+	margin: 0
+	padding-left: 6px
+
+.header__delimiter
+	margin: 0
+	position: absolute
+	top: 67px
+	left: 0
+	right: 0
+	border: none
+	border-bottom: 1px solid #f3f3f3
+
+.header__menu-btn
+	float: right
+	margin-top: 16px
+	padding-top: 8px
+	margin-right: -6px
+	background-color: transparent
+	cursor: pointer
+
+.header__menu-btn-dash
+	width: 16px
+	height: 3px
+	background-color: #634a8a
+	margin-bottom: 4px
+
+.header__menu
+	position: fixed
+	right: 0
+	top: 65px
+	width: 236px
+	background-color: #fff
+	z-index: 1
+	border: 2px solid #563D7C
+	border-right: none
+	font-size: 0
+	transition: 0.3s
+
+.header__menu_hidden
+	right: -100%
+
+.header__menu-item
+	font-size: 0.7778rem
+	font-family: "Source Sans Pro"
+	color: #28374f
+	display: block
+	width: 236px
+	height: 34px
+	line-height: 34px
+	text-align: center
+	transition: 0.2s
+	border-bottom: 1px solid #F3F3F3
+
+.header__menu-item:hover
+	background-color: #563d7c
+	color: #fff
+
+.header__menu-link
+	display: block
+	height: inherit
+
+/* Блок контентной части */
+
+// Фильтр поиска
+
+.choose-city
+	color: #686868
+	font-family: "Source Sans Pro"
+	background-color: #fff
+	height: 60px
+	margin-top: 65px
+	margin-bottom: 22px
+	border-top: 2px solid #563d7c
+	border-bottom: 2px solid #ccc
+
+.choose-city__search-result
+	font-size: 0.9445rem
+	line-height: 56px
+
+.choose-city__current
+	font-size: 0.7223rem
+	line-height: 60px
+	text-align: right
+
+.filter
+	font-family: "Source Sans Pro"
+
+.filter__inner
+	border: 2px solid #efefef
+	padding: 0px 10px
+
+.filter__title, .filter__control, .filter__results, .filter__drop-down-options
+	display: inline-block
+	line-height: 54px
+
+.filter__title
+	color: #563d7c
+	font-size: 1.2778rem
+	letter-spacing: -0.4px
+
+.filter__control
+	float: right
+	color: #333
+	font-size: 0.8889rem
+
+.filter__results
+	margin-right: 12px
+
+.filter__drop-down-options
+	font-size: 1.2223rem
+	color: #c7c7c7
+	position: relative
+	top: 2px
+	cursor: pointer
+	transition-duration: 0.1s
+
+.filter__drop-down-options_closed
+	transform: rotate(90deg)
+
+.filter__common-options-block
+	padding-bottom: 10px
+	transition: 0.4s
+
+.filter__common-options-block_hidden
+	height: 0px !important
+	overflow: hidden
+	padding: 0
+	opacity: 0
+
+.filter__delimiter
+	border: 1px solid #efefef
+	margin: 2px 0 10px
+
+.filter__option-block
+	margin-bottom: 2.5px
+
+.filter__option, .filter__option-description
+	display: inline-block
+
+.filter__option
+	outline: none
+	margin-left: 2px
+
+.filter__hotel-service
+	margin: 8px 0 6px
+	font-weight: 600
+	color: #333
+
+.filter__option-description
+	font-size: 0.8334rem
+	color: #333
+	vertical-align: text-top
+
+// Результаты поиска
+
+.search-result__block
+	border: 1px solid #efefef
+	margin-top: 18px
+	color: #333
+	font-family: "Source Sans Pro"
+	overflow: hidden
+	position: relative
+	font-size: 0.7223rem
+
+.search-result__img
+	float: left
+	border-right: 1px solid #efefef
+	width: 129px
+	height: 104px
+	margin-right: 7px
+
+.search-result__cost
+	margin-top: 2px
+	position: absolute
+	top: 72px;
+	left: 136px;
+
+.search-result__cost-mark
+	color: #ff9c00
+	font-size: 1rem
+
+.search-result__cost-mark::after
+	content: ""
+	display: inline-block
+	position: relative
+	top: 2px
+	left: 2px
+	width: 26px
+	height: 18px
+	background-image: url(../img/icons/azn-manat.svg)
+
+.search-result__description
+	color: #868686
+	font-size: 0.7778rem
+	line-height: 21px
+	margin-top: 8px
+
+.search-result__hotel-name
+	font-size: 0.8889rem
+	margin-top: 3px
+
+.search-result__location, .search-result__cost
+	font-size: 0.7223rem
+	margin-top: 2px
+
+.search-result__hotel-rating
+	font-size: 0
+	margin-top: 5px
+
+.search-result__star
+	display: inline-block
+	color: #febd17
+	font-size: 0.7778rem
+
+.search-result__star_hidden
+	display: none
+
+// Контакты и ссылки на соц.сети
+
+.social-links
+	border-top: 2px solid #563d7c
+	border-bottom: 1px solid #efefef
+	margin: 34px 0 14px
+
+.social-links__logo-img
+	margin-top: 12px
+
+.social-links__ico
+	color: #e0e0e0
+	float: right
+	padding: 0 5px 0 12px
+	font-size: 16px
+	line-height: 74px
+	transition: 0.1s
+	position: relative
+	top: 2px
+
+.social-links__ico:hover
+	color: #563d7c
+
+.all-hotells
+	margin: 32px 0 26px
+
+.all-hotels__list
+	display: inline-block
+	font-size: 0
+
+.all-hotels__item
+	font-family: "Source Sans Pro"
+	color: #333
+	font-size: 0.7778rem
+	line-height: 22px
+	transition: 0.06s
+
+.all-hotels__item:hover
+	text-decoration: underline
+	color: #563d7c
+	font-weight: bold
+
+.contacts, .work-time
+	font-size: 0.7778rem
+	color: #282626
+	font-family: "Source Sans Pro"
+	line-height: 28px
+
+.contacts__title, .work-time__title
+	letter-spacing: 0.8px
+	margin: 4px 0
+
+.contacts__phone-ico, .contacts__phone-number, .contacts__location-ico, .contacts__location-address, .work-time__ico, .work-time__weekdays
+	display: inline-block
+
+.contacts__location
+	margin: 4px 0
+
+.contacts__location, .work-time__block
+	line-height: 24px
+
+.contacts__phone-ico, .contacts__location-ico, .work-time__ico
+	color: #563d7c
+	font-size: 0.8889rem
+	position: absolute
+	top: 4px
+	left: -21px
+
+.contacts__phone-ico_mob
+	font-size: 1rem;
+	top: 5px
+	left: -19px
+
+.contacts__location-ico
+	font-size: 0.9445rem
+	top: 2px
+	left: -20px
+
+.contacts__phone-number, .contacts__location-address, .work-time__weekdays, .work-time__weekend
+	margin-left: 24px
+	position: relative
+
+/* Блок футера */
+
+.footer
+	height: 40px
+	background-color: #efefef
+	margin-top: 22px
+
+.inner-footer
+	font-size: 0
+
+.footer__copyright
+	font-size: 0.7778rem
+	color: #282626
+	font-family: "Source Sans Pro"
+	line-height: 40px
+
+.payment-icons
+	float: right
+	line-height: 52px
+
+.payment-icons__visa, .payment-icons__master-card
+	background-image: url(../img/icons/footer-icons-sprite.png)
+	background-repeat: no-repeat
+	display: inline-block
+	width: 48px
+	height: 28px
+	vertical-align: middle
+	border-radius: 1px
+
+.payment-icons__visa
+	background-position: 0 -30px
+
+.payment-icons__master-card
+	background-position: -48px -30px
+	margin-left: 8px
+
+.mob-app-icons
+	float: right
+	line-height: 40px
+
+.mob-app-icons__google-play, .mob-app-icons__app-store
+	background-image: url(../img/icons/mob-app-icons-sprite-min.png)
+	background-repeat: no-repeat
+	display: inline-block
+	width: 62px
+	height: 24px
+	vertical-align: middle
+	border-radius: 1px
+
+.mob-app-icons__google-play
+	background-position: 0 0
+
+.mob-app-icons__app-store
+	background-position: -62px 0
+	margin-left: 15px
+
+@import media-queries
