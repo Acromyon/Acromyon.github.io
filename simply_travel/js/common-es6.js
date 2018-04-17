@@ -28,3 +28,17 @@ function toggleDropDownFilter() {
 	commonOptionsBlock.classList.toggle('filter__common-options-block_hidden');
 	filterDropDown.classList.toggle('filter__drop-down-options_closed');
 }
+
+// Упрощение клика на чекбокс
+
+const filterOptionBlocks = document.getElementsByClassName('filter__option-block');
+
+for (let i = 0; i < filterOptionBlocks.length; i++) {
+	filterOptionBlocks[i].addEventListener('click', checkedOption);
+}
+
+function checkedOption() {
+	if (this.firstElementChild.checked) {
+		this.firstElementChild.checked = false;
+	} else this.firstElementChild.checked = true;
+}
