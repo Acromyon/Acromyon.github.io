@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Bubble Sort</title>
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+	<link href="css/main.min.css" rel="stylesheet" type="text/css">
+	<link href="favicon.ico" rel="icon" type="image/x-icon">
+	<script src="js/jquery-3.2.1.min.js" defer></script>
+	<script src="js/jquery-ui.min.js" defer></script>
+	<script src="js/jquery.swap.js" defer></script>
+	<script src="js/common.min.js" defer></script>
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="inner-header container clearfix">
+				<p class="header__title">Сортирование &#171;Пузырьком&#187;</p>
+			</div>
+		</header>
+		<div class="main container">
+			<section class="generator">
+				<p class="generator__description">Выберите диапазон, для генерации случайных чисел:</p>
+				<div class="generator__range-block">
+					<div id="slider" class="generator__range"></div>
+					<button class="generator__do-btn">Применить</button>
+				</div>
+				<div class="generator__result">
+					<!-- Здесь будет html из JS -->
+				</div>
+			</section>
+			<section class="sorter">
+				<div class="sorter__wrapper">
+					<div class="sorter__btns-block">
+						<button class="sorter__do-btn">Сортировать</button>
+						<button class="sorter__tab-btn sorter__up-btn sorter__tab-btn_pressed" data-tab-pressed="true"></button>
+						<button class="sorter__tab-btn sorter__down-btn"></button>
+					</div>
+				</div>
+				<div id="sorter__result" class="sorter__result">
+					<!-- Здесь будет html из JS -->
+				</div>
+			</section>
+		</div>
+	</div>
+</body>
+</html>
