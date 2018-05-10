@@ -6,7 +6,7 @@ $('#slider').slider({
 	values: [0, 99],
 	range: true,
 	animate: 'normal',
-	slide: function(event, ui) { // Привязываем значение плзунков к отоброжающим элементам
+	slide: function (event, ui) { // Привязываем значение плзунков к отоброжающим элементам
 			for (let i = 0; i < generatorRangeValue.length; i++) {
 				$('.generator__range-value_' + [i]).text(ui.values[i]);
 			}
@@ -18,7 +18,7 @@ $('#slider').slider({
 $('.ui-slider-handle').append('<div class="generator__range-value"></div>'); // Добавляем в слайдер отображающие элементы
 let generatorRangeValue = $('.generator__range-value'); // Получаем их для дальнейшей модификации в цикле
 
-for (var i = 0; i < generatorRangeValue.length; i++) {
+for (let i = 0; i < generatorRangeValue.length; i++) {
 	generatorRangeValue[i].classList.add('generator__range-value_' + [i]);
 }
 
@@ -51,7 +51,7 @@ function sorterData() {
 	getDataView('.sorter__result', randomValues, 'sorter'); // Отдаём неотсартированные данные в шаблонизатор
 
 	const lastResultElem = document.querySelector('.sorter__result-block:last-child');
-	lastResultElem.addEventListener('animationend', function() {
+	lastResultElem.addEventListener('animationend', function () {
 		const sortedValues = randomValues;
 		let step = 0;
 		let subStep = 0;
