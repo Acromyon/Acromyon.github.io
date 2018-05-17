@@ -1,5 +1,26 @@
 /* Адаптивка */
 
+@media screen and (min-width: 333px)
+	.offer__card-post-index-tips
+		top: 214px
+
+	.offer__spend-per-year_strom
+		margin-bottom: -18px
+
+@media screen and (min-width: 462px)
+	.offer__card-post-index-tips
+		top: 180px
+
+	.offer__spend-per-year_strom
+		margin-bottom: 0
+
+	.categories__slot
+		width: 48%
+
+	.text-block-table
+		tbody>tr>td, tbody>tr>th
+			padding: 5px 30px
+
 /* Small devices (tablets, 768px and up) */
 
 @media screen and (min-width: 768px)
@@ -9,6 +30,43 @@
 	.offer__cards-box
 		height: 540px
 
+	.offer__card-post-index-tips
+		left: 40%
+		top: 180px
+		width: 250px
+
+	.offer__card-post-index-tips::before
+		top: -11px
+		left: 56px
+
+	.categories
+		background-image: url(../img/bgi_categories.png)
+
+	.categories__slot
+		width: 32%
+		height: 140px
+
+	.text-block__title
+		font-size: $_60px
+		line-height: 68px
+
+	.text-block__description
+		font-size: $_36px
+
+	.text-block__sub-description
+		font-size: $_24px
+
+	.text-block__fold-text
+		padding: 10px 12% 30px 30px
+		margin-left: -30px
+
+	.text-block__fold-text_closed
+		padding: 10px 12% 10px 30px
+
+	.text-block__fold-btn
+		top: 28px
+		right: 10px
+		transform: scale(1)
 
 /* Medium devices (desktops, 992px and up) */
 
@@ -24,11 +82,23 @@
 	.header__pages-list
 		text-align: right
 
-	.header__pages_item
-		line-height: 60px
-		padding: 0 14px
+	.header__pages-item
 		display: inline-block
 		border: none
+		line-height: 60px
+
+	.header__pages-item_active::before
+		left: 5px
+		right: 5px
+		top: 30px
+		height: 10px
+
+	.header__pages-link
+		padding: 0 14px
+
+	#contacts-btn
+		line-height: 60px
+		padding: 0 14px
 
 	.mega-menu__block, .contacts__block
 		left: 30px
@@ -98,11 +168,18 @@
 	.offer__card-post-index
 		text-align: left
 
-	.offer__card-post-index .jq-selectbox__dropdown
-		right: -156px !important
+	.offer__card-post-index-tips
+		left: 20%
+		width: 300px
 
 	.offer__card-place
 		width: 94%;
+
+	.offer__spend-per-year
+		text-align: left
+
+	.offer__card-residents-lot
+		text-align: left
 
 	.inner-footer
 		padding-bottom: 0
@@ -123,10 +200,38 @@
 	.footer-copyright__name
 		float: right
 
+	.text-block__btn
+		margin: 38px 0 0 -7px
+
+	.okostrom__img
+		float: right
+
+	.text-block__btn_elektromobilitat
+		margin-top: 60px
+
+	.text-block__aside
+		margin-top: 132px
+		float: right
+
+	.text-block__aside_warmepumpe
+		margin-top: 90px
+
+	.text-block__video
+		margin: 40px 0
+
 /* Large devices (large desktops, 1200px and up) */
 
 @media screen and (min-width: 1200px)
-	.header__pages_item
+	.header__pages-link
+		padding: 0 25px
+
+	.header__pages-item_active::before
+		left: 15px
+		right: 15px
+		top: 30px
+		height: 15px
+
+	#contacts-btn
 		padding: 0 25px
 
 	.header__control
@@ -150,4 +255,11 @@
 		display: inline-block
 
 	.offer__tabs
-	margin: 0
+		margin: 0
+
+	.offer__card-post-index-tips
+		left: 36%
+
+	.kunden__img
+		float: right
+		margin: 130px auto 0

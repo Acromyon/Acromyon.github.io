@@ -1,3 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="32" height="44" viewBox="0 0 32 44">
-  <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAsCAMAAAAzZkq9AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAACEFBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8AAABgHOBmAAAArnRSTlMAsvBcHZAEYb0QptnV2CIH8YANs+kuTTEDN6lyFvp6Y/01fPwcW+skCdoRcLfsuJ6MCMz7M6j0zsv1H2tsfnYCDMpAddb4KL7hkkpEAebj745JC26aJxef96Ejr8NdsH+T4KNGgfbUCt/nP+088lk+b7t9eXTG+SXc5eqIUIXIws+LmQZOp19DVO7Elz2Cj1IqHs3zFBkaYoR7cw86lNAFIWqqccmJtjht/qUVxyxw5StsAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAmhJREFUOMt9lGdDE0EQhtcgp4BCRJpIiR4dRJolihSNChosiIi9IkZFwAJ2USxgx4aKvdfnN7q3ueMucHG+zLwz7+7Mzs6uEE6Z5okR/5PpQKz2H8IMSWBmXHRCPAmzYHZitHiSlznJcyElNQohDdJFRix457kTMkkw1PxojKxscpSR68O7wIWwED0vbOX7KCicEi8qINOyc6G4ZDKhFOzMOVCWERmPW0S5Ay7GLGhCKpwbCFFZRXWNM56qsyRiQeFSljmSaMvxr4jcciXU2mgV1E0qur6KlAYL1FTTOOWaV8Maq6IAa9dN7dx6msxVzVDq0lp5eRuUsVFOSdCFUN9CvKGTN+HJE27SzGbjpFsg3zUutqrmJWZT5h4XrT62CdGGvt32tbc7GQF2iJIOdtqeXf6OXAdhN3vEXnBMzz459/tteICD4hBNtuOw8TCMvKYcoVMcDZ9VSdcxQsdPoJ+0HHUguh1bypk4JXp0ipNMR68kQK8VlzPRJ9Vpu/FnFOGsiYLn6B+QWjvPBc0q8qJMcckkXIYrypAHSwu7rnJNDFqzWh8g1Kqsom7ZH0MadK6LG3iHFLppp75FQOnbcEcMw7DZtZGiieL1oXCGkCZau7lrAM3PPes4cpHxi9yHB1I9hEdSPbZ2Cpc7Kpc84ekziZ77SXmhRjTdIoxBlxAv4ZWCr6FxXLxxvKy38o5EDLx7Hz5fGVR9yIKPZlxr4VPwsw/PgOkY/yL/lLoEBs3JlY//ax909kxc0vg3dc3m4xodUSD03TE5wR8ew9dfaYA2w/z563fkfCbXlhfwR+UY83UMVvy1Av8Aps/aDHmyaxkAAAAASUVORK5CYII=" width="32" height="44"/>
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 54 72" enable-background="new 0 0 54 72" xml:space="preserve">
+<g>
+	<defs>
+		<rect id="SVGID_1_" width="54" height="72"/>
+	</defs>
+	<clipPath id="SVGID_2_">
+		<use xlink:href="#SVGID_1_"  overflow="visible"/>
+	</clipPath>
+	<path fill="#ffffff" clip-path="url(#SVGID_2_)" d="M23.7,0c-0.8,0.1-1.4,0.7-1.6,1.5c-3.1,13-8.4,20.4-13.1,26.8c-4.7,6.4-9,12-9,20.6
+		C0,61,9.1,72,20,72c1.1,0,2-0.9,2-2c0-0.5-0.2-1-0.5-1.4c-1.9-2.2-2.6-4.2-2.7-6.3c-0.1-2.1,0.5-4.3,1.6-6.6
+		c1.8-3.9,4.8-7.9,7.1-11.8c3.3,2.8,5.9,6.7,6.9,10.9c1.2,4.9,0.6,9.8-2.9,13.8c-0.7,0.8-0.7,2.1,0.1,2.8C32,71.8,32.5,72,33,72
+		c6.4,0,11.7-3.8,15.3-8.7C51.9,58.5,54,52.4,54,47c0-16.5-6.8-30.2-28.8-46.6C24.8,0.1,24.2-0.1,23.7,0 M25,5.4
+		C44.6,20.5,50,32.1,50,47c0,4.4-1.8,9.8-4.9,14c-2.1,2.9-4.8,5.1-7.9,6.2c2-4.2,2.2-8.9,1.1-13.3c-1.5-5.9-5.2-11.3-10.2-14.6
+		c-0.9-0.6-2.2-0.4-2.8,0.5c0,0.1-0.1,0.1-0.1,0.2c-2.1,4-6.1,8.8-8.5,14.1c-1.2,2.6-2.1,5.4-1.9,8.4c0.1,1.5,0.5,3.1,1.1,4.6
+		C9.4,64.8,4,57.3,4,48.9c0-7.3,3.5-11.9,8.2-18.3C16.5,24.7,21.7,17.2,25,5.4"/>
+</g>
 </svg>

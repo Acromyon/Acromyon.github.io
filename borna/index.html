@@ -6,11 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Borna main page</title>
 	<link href="css/bootstrap-custom.min.css" rel="stylesheet" type="text/css">
+	<link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css">
 	<link href="css/jquery.formstyler.css" rel="stylesheet">
 	<link href="css/jquery.formstyler.theme.css" rel="stylesheet">
 	<link href="css/main.min.css" rel="stylesheet" type="text/css">
 	<link href="favicon.ico" rel="icon" type="image/x-icon">
 	<script src="js/jquery-3.3.1.min.js" defer></script>
+	<script src="js/jquery-ui.min.js" defer></script>
 	<script src="js/jquery.formstyler.min.js" defer></script>
 	<script src="js/common.min.js" defer></script>
 	<!--[if lt IE 9]>
@@ -24,15 +26,15 @@
 			<div class="inner-header container clearfix">
 				<div class="row">
 					<div class="col-xs-5 col-md-2">
-						<a href="#" class="header__logo-link">
+						<a href="/" class="header__logo-link">
 							<img src="svg/LogoSWB_FreeH.svg" alt="header-logo" class="header__logo">
 						</a>
 					</div>
 					<ul class="header__pages-list col-xs-7 col-md-6">
-						<li class="header__pages_item">Service</li>
-						<li class="header__pages_item">Über&nbsp;uns</li>
-						<li class="header__pages_item">Magazin</li>
-						<li class="header__pages_item" id="contacts-btn">Kontakt</li>
+						<li class="header__pages-item"><a href="inner_page_service.html" class="header__pages-link">Service</a></li>
+						<li class="header__pages-item"><a href="" class="header__pages-link">Über&nbsp;uns</a></li>
+						<li class="header__pages-item"><a href="" class="header__pages-link">Magazin</a></li>
+						<li class="header__pages-item" id="contacts-btn">Kontakt</li>
 					</ul>
 					<div class="header__control col-xs-12 col-md-4">
 						<button class="header__control-search"></button>
@@ -276,15 +278,18 @@
 									<div class="offer__card offer__card_erdgas">
 										<h4 class="offer__card-name">Erdgas</h4>
 										<p class="offer__card-post-index">
-											Ihre Postleitzahl
-											<input name="post-index" id="post-index" class="offer__card-post-index-volume">
-											<!-- <ul class="offer__card-post-index-tip">
-												<li>06407 Bernburg</li>
-												<li>06408 Bernburg</li>
-												<li>06409 Bernburg</li>
-												<li>06410 Bernburg</li>
-											</ul> -->
+											Ihre Postleitzahl<input name="post-index" type="text" class="post-index offer__card-post-index-volume" autocomplete="off">Bernburg
 										</p>
+										<ul id="drop-tips" class="offer__card-post-index-tips offer__card-post-index-tip_hidden">
+											<li class="offer__card-post-index-tip" data-tip="06407">06407 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="06408">06408 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="06409">06409 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="06410">06410 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="06310">06310 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="06210">06210 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="05410">05410 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="05410">05410 <span class="offer__card-post-index-city">Bernburg</span></li>
+										</ul>
 										<select name="choose-place" id="choose-place" placeholder="Ort Wahlen" class="offer__card-place">
 											<option value="1" selected>Ort Wahlen</option>
 											<option value="2">2</option>
@@ -292,7 +297,6 @@
 										</select>
 										<p class="offer__spend-per-year">Erdgasverbrauch pro Jahr
 											<span class="offer__spend-per-year-volume">30 800</span>
-											kWh
 										</p>
 										<button class="offer__card-calc">Berechnen</button>
 									</div>
@@ -300,7 +304,31 @@
 										<!-- reserve sheet -->
 									</div>
 									<div class="offer__card offer__card_strom offer__card_hidden">
-										aaaa
+										<h4 class="offer__card-name">Strom</h4>
+										<p class="offer__card-post-index">
+											Ihre Postleitzahl<input name="post-index" type="text" class="post-index offer__card-post-index-volume" autocomplete="off">Bernburg
+										</p>
+										<ul id="drop-tips" class="offer__card-post-index-tips offer__card-post-index-tip_hidden">
+											<li class="offer__card-post-index-tip" data-tip="05411">05411 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="05412">05412 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="05413">05413 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="05414">05414 <span class="offer__card-post-index-city">Bernburg</span></li>
+										</ul>
+										<p class="offer__card-residents-lot">Wieviele Personen liben in Ihrem Haushalt?</p>
+										<div class="offer__card-slider-box">
+											<ul class="offer__card-slider-graduate">
+												<li class="offer__card-slider-graduate-mark">1</li>
+												<li class="offer__card-slider-graduate-mark">2</li>
+												<li class="offer__card-slider-graduate-mark">3</li>
+												<li class="offer__card-slider-graduate-mark">4</li>
+												<li class="offer__card-slider-graduate-mark">5+</li>
+											</ul>
+											<div id="slider" class="offer__card-slider"></div>
+										</div>
+										<p class="offer__spend-per-year offer__spend-per-year_strom">Stromverbrauch pro Jahr
+											<span class="offer__spend-per-year-volume">30 800</span>
+										</p>
+										<button class="offer__card-calc">Berechnen</button>
 									</div>
 									<div class="offer__card-base-sheet">
 										<!-- base sheet -->
@@ -323,7 +351,7 @@
 		<div class="inner-footer container clearfix">
 			<div class="row">
 				<div class="col-xs-offset-1 col-xs-10 col-md-offset-0 col-md-3">
-					<a href="#" class="footer__logo-link">
+					<a href="/" class="footer__logo-link">
 						<img src="svg/LogoSWB_footer.svg" alt="footer-logo" class="footer__logo">
 					</a>
 					<p class="footer__afterword">We possess within us two minds. So far I have written only of the conscious mind. I would now like to introduce you to your second mind, the hidden and mysterious subconscious. Our subconscious mind contains such power.</p>

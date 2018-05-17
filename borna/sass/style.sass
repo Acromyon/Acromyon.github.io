@@ -79,6 +79,7 @@ $_28px: 1.5556rem
 $_32px: 1.7778rem
 $_34px: 1.8889rem
 $_36px: 2rem
+$_40px: 2.2222rem
 $_42px: 2.3334rem
 $_46px: 2.5556rem
 $_48px: 2.6667rem
@@ -108,22 +109,39 @@ $_70px: 3.8889rem
 .header__pages-list
 	font-size: 0
 
-.header__pages_item
+.header__pages-item
 	padding: 0
 	color: #323232
 	font-family: Frutiger
 	font-size: $_14px
-	font-weight: 700
 	line-height: 30px
+	font-weight: 700
 	text-transform: uppercase
 	letter-spacing: 3px
 	cursor: pointer
 	text-align: center
 	display: block
 	border-bottom: 1px solid #7C7C7C
+	position: relative
+
+.header__pages-item_active::before
+	content: ""
+	display: block
+	position: absolute
+	left: 0px
+	right: 0px
+	top: 15px
+	height: 15px
+	opacity: 0.5
+	background-color: #0072bc
+
+.header__pages-link
+	height: 100%
+	display: block
 
 #contacts-btn
 	border-bottom: none
+	line-height: 30px
 
 .header__control
 	font-size: 0
@@ -146,6 +164,7 @@ $_70px: 3.8889rem
 	background-color: #fff
 	background-image: url(../svg/search-ico.svg)
 	background-repeat: no-repeat
+	background-size: 17px
 	background-position: 14px 14px
 
 .header__control-login
@@ -196,9 +215,9 @@ $_70px: 3.8889rem
 	border: 1px solid #d9d9d9
 	box-shadow: 1.6px 9.9px 20px rgba(0, 0, 0, 0.2)
 	top: 200px
-	z-index: 2
+	z-index: 4
 	opacity: 1
-	transition: .25s ease-out
+	transition: all .25s ease-out
 	max-width: 100%
 
 .contacts__block
@@ -217,7 +236,7 @@ $_70px: 3.8889rem
 	transform: rotate(45deg)
 	top: -11px
 	left: 68%
-	z-index: 1
+	z-index: 11
 
 .mega-menu__block_hidden, .contacts__block_hidden
 	opacity: 0
@@ -237,22 +256,37 @@ $_70px: 3.8889rem
 .mega-menu__title
 	margin: 4px 0 0 -20px
 
-.mega-menu__close-btn, .contacts__close-btn
+.mega-menu__close-btn, .contacts__close-btn, .text-block__fold-btn
 	float: right
 	margin-right: 7px;
 	width: 50px
 	height: 50px
 	cursor: pointer
 
-.mega-menu__close-line, .contacts__close-line
+.mega-menu__close-line, .contacts__close-line, .text-block__fold-btn-line
 	background-color: #000
 	height: 1px
 	transform: rotate(45deg)
 	position: relative
 	top: 18px
+	width: 100%
+	transition: all .2s ease-out
 
-.mega-menu__close-line_rev, .contacts__close-line_rev
+.mega-menu__close-line_rev, .contacts__close-line_rev, .text-block__fold-btn-line_rev
 	transform: rotate(-45deg)
+
+.text-block__fold-btn
+	position: absolute
+	top: 16px
+	right: 0
+	transform: scale(.8)
+
+.text-block__fold-btn_closed>.text-block__fold-btn-line
+	width: 26px
+
+.text-block__fold-btn_closed>.text-block__fold-btn-line_rev
+	top: 17px
+	left: 18px
 
 .mega-menu__sub-block-title
 	margin-left: -20px
@@ -337,14 +371,17 @@ $_70px: 3.8889rem
 
 .contacts__work-time-title
 	background-image: url(../svg/contacts_work-time.svg)
+	background-size: 52px
 
 .contacts__address-title
 	background-image: url(../svg/contacts_address.svg)
 	background-position: 3px 6px
+	background-size: 52px
 
 .contacts__direct-title
 	background-image: url(../svg/contacts_direct.svg)
 	background-position: 3px 8px
+	background-size: 52px
 
 .contacts__work-time-list, .contacts__address-text, .contacts__direct-list, .contacts__direct-email, .contacts__service-text, .contacts__service-list, .contacts__registration-text
 	color: #7b7b7b
@@ -492,7 +529,7 @@ $_70px: 3.8889rem
 	display: block
 	width: 100%
 	opacity: .4
-	transition: .4s ease-out
+	transition: all .4s ease-out
 
 .slider__bottom-elem-img:hover
 	transform: scale(1.1)
@@ -591,7 +628,7 @@ $_70px: 3.8889rem
 .news__article-preview
 	overflow: hidden
 	opacity: 0
-	transition: .4s ease-out
+	transition: all .4s ease-out
 	max-height: 0
 
 .news__article-preview_visible
@@ -647,6 +684,7 @@ $_70px: 3.8889rem
 	letter-spacing: 1.5px
 	padding-left: 92px
 	background-repeat: no-repeat
+	background-size: 34px
 	cursor: pointer
 	transition: all .25s ease-out
 
@@ -655,15 +693,17 @@ $_70px: 3.8889rem
 
 .offer__tab_erdgas
 	background-image: url(../svg/tab_erdgas-ico.svg)
-	background-position: 26px 21px
+	background-position: 27px 21px
 
 .offer__tab_warme
 	background-image: url(../svg/tab_warme-ico.svg)
-	background-position: 22px 13px
+	background-position: 22px 15px
+	background-size: 42px
 
 .offer__tab_strom
 	background-image: url(../svg/tab_strom-ico.svg)
-	background-position: 30px 17px
+	background-position: 27px 17px
+	background-size: 32px
 
 .offer__tab_small
 	position: relative
@@ -677,7 +717,7 @@ $_70px: 3.8889rem
 	padding-left: 0
 	background-repeat: no-repeat
 	cursor: pointer
-	transition: .25s ease-out
+	transition: all .25s ease-out
 	top: 48px
 
 .offer__tab_small:hover
@@ -709,7 +749,7 @@ $_70px: 3.8889rem
 	height: 100%
 	background-color: #3ca4bc
 	opacity: 1
-	z-index: 99
+	z-index: 3
 
 .offer__card-base-sheet
 	z-index: 1
@@ -728,11 +768,11 @@ $_70px: 3.8889rem
 	letter-spacing: normal
 
 .offer__card-post-index
-	margin-top: 60px
+	margin-top: 50px
 	line-height: 34px
 	text-align: center
 
-.offer__card-post-index .jq-selectbox__select
+.offer__card-post-index-volume
 	outline: none
 	border: none
 	background: transparent
@@ -742,51 +782,53 @@ $_70px: 3.8889rem
 	padding: 0 6px
 	color: #fff
 	font-size: $_36px
+	display: inline-block
+	width: 120px
 
-.offer__card-post-index .jq-selectbox__trigger
-	display: none
+.offer__card-post-index-tips
+	position: absolute
+	background-color: #fff
+	color: #000
+	top: 242px
+	left: 12%
+	width: 80%
+	padding: 16px 0 6px
+	border: 1px solid #D9D9D9
+	transition: all .3s ease-out
 
-.offer__card-post-index .jq-selectbox__dropdown
-	padding: 14px 0 10px
-	margin-top: 30px
-	top: 32px !important
-	min-height: 490%
-	width: 270px !important
-	right: -123px !important
-
-.offer__card-post-index .jq-selectbox__dropdown ul
-	width: 268px
-
-.offer__card-post-index .jq-selectbox__dropdown::before
+.offer__card-post-index-tips::before
 	content: ""
 	display: block
-	width: 26px
-	height: 26px
+	width: 20px
+	height: 20px
+	background-color: #fff
+	border: 1px solid #D9D9D9
+	border-right: none
+	border-bottom: none
 	transform: rotate(45deg)
 	position: absolute
-	top: -13px
-	left: 44px
-	background-color: #fff
+	top: -11px
+	left: 50%
 
-.offer__card-post-index .jq-selectbox li
-	border-radius: 0
-	padding: 10px 30px
-	font-size: $_18px
-	transition: .15s ease-out
+.offer__card-post-index-city
+	color: #7b7b7b
+	font-weight: 200
+	margin-left: 48px
 
-.offer__card-post-index .jq-selectbox li::after
-	content: 'Bernburg'
-	color: #7C7C7C
-	margin-left: 26px
-	display: inline-block
+.offer__card-post-index-tip_hidden
+	visibility: hidden
+	opacity: 0
 
-.offer__card-post-index .jq-selectbox li.selected, .offer__card-post-index .jq-selectbox li:hover
+.offer__card-post-index-tip
+	height: 40px
+	line-height: 40px
+	padding: 0 29px
+	font-size: 16px
+	font-weight: 600
+	cursor: pointer
+
+.offer__card-post-index-tip:hover
 	background-color: #F0F0F0
-	color: #000
-	font-weight: 700
-
-.offer__card-post-index .jq-selectbox__dropdown
-	border-radius: 0
 
 .offer__card-place
 	margin-top: 36px
@@ -838,7 +880,7 @@ $_70px: 3.8889rem
 
 .jq-selectbox li
 	border-radius: 3px
-	transition: .15s ease-out
+	transition: all .15s ease-out
 	font-size: $_18px
 
 .jq-selectbox li.selected, .jq-selectbox li:hover
@@ -848,6 +890,7 @@ $_70px: 3.8889rem
 
 .offer__spend-per-year
 	margin-top: 46px
+	text-align: center
 
 .offer__spend-per-year-volume, .offer__card-post-index-volume
 	font-size: $_36px
@@ -857,6 +900,14 @@ $_70px: 3.8889rem
 	position: relative
 	top: -3px
 	cursor: pointer
+	white-space: nowrap
+
+.offer__spend-per-year-volume::after
+	content: "kWh"
+	position: absolute
+	top: 18px
+	margin-left: 22px
+	font-size: $_18px
 
 .offer__card-calc
 	margin: 45px auto
@@ -868,8 +919,45 @@ $_70px: 3.8889rem
 	color: #000
 	font-size: $_15px
 	font-weight: 700
+	letter-spacing: 2.2px
 	text-transform: uppercase
 	display: block
+
+.offer__card-residents-lot
+	text-align: center
+	margin-top: 38px
+
+.offer__card-slider-box
+	margin: 26px 0 -18px
+
+.offer__card-slider-graduate
+	display: flex
+	justify-content: space-between
+
+.offer__card-slider-graduate-mark
+
+
+.offer__card-slider
+	margin-top: 14px
+	border-radius: 7px
+	height: 16px
+
+.offer__card-slider-box .ui-slider-handle
+	border-radius: 50%
+	width: 28px
+	height: 28px
+	top: -7px
+	outline: none
+	border: 6px solid #004980
+	box-shadow: 0 4px 40px rgba(0, 0, 0, 0.9)
+	transition: box-shadow .1s ease-out
+
+.offer__card-slider-box .ui-slider-handle:active
+	background-color: #F6F6F6
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.9)
+
+.offer__spend-per-year_strom
+	margin-bottom: -35px
 
 .contact-us
 	font-family: Frutiger
@@ -933,7 +1021,7 @@ $_70px: 3.8889rem
 	line-height: 30px
 
 .footer__block-link
-	transition: .01s
+	transition: all .01s
 
 .footer__block-link:hover
 	color: #DEDEDE
@@ -947,6 +1035,237 @@ $_70px: 3.8889rem
 
 .footer-copyright__date, .footer-copyright__name
 	text-align: center
+
+/* inner_page_service */
+
+.categories
+	padding: 67px 0 50px
+	overflow: visible
+	background-color: #DEDEDE
+	background-repeat: no-repeat
+	background-size: cover
+
+.categories__slot-set
+	display: flex
+	flex-wrap: wrap
+	justify-content: space-between
+
+.categories__slot
+	width: 100%
+
+.categories__slot-item
+	height: 118px
+	width: 100%
+	margin: 11px auto
+	display: block
+	opacity: 0.95
+	background-color: #fff
+	border-radius: 3px
+	box-shadow: 0 21px 38px rgba(0, 0, 0, 0.8)
+	cursor: pointer
+	transition: all .2s ease-out
+
+.categories__slot-item:hover
+	background-color: #0072bc
+	color: #fff
+
+.categories__slot-img
+	height: 42px
+	width: 100%
+	display: block
+	margin: 0 auto
+
+.categories__slot-img_geschaftskunden
+	height: 50px
+
+.categories__slot-img_strom-kennzeichnung
+	height: 34px
+
+.categories__slot-name
+	margin-top: 14px
+	font-size: $_18px
+	font-weight: 400
+
+.text-block-section
+	background-color: #DBF0FE
+	padding: 46px 0 76px
+	overflow: hidden
+
+.text-block-section_okostrom
+	background: -moz-linear-gradient(-45deg, #c7e5f5 0%, #b2bce6 100%)
+	background: -webkit-linear-gradient(-45deg, #c7e5f5 0%,#b2bce6 100%)
+	background: linear-gradient(135deg, #c7e5f5 0%,#b2bce6 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c7e5f5', endColorstr='#b2bce6',GradientType=1 )
+	padding-bottom: 62px
+	.text-block__text
+		margin-top: 36px
+
+.text-block-section_digitale
+	background-color: #F2F2F2
+	padding-bottom: 34px
+
+.text-block-section_elektromobilitat
+	background-color: #FEEBBD
+	padding-bottom: 62px
+	.text-block__description
+		margin-top: 8px
+	.text-block__text
+		margin-top: 14px
+
+.text-block-section_wissenswertes
+	background-color: #F2F2F2
+	padding: 50px 0 37px
+	.text-block__sub-description
+		margin: 15px 0 24px
+	.text-block__description
+		margin-top: 14px
+
+.text-block__title
+	color: #1b1b1b
+	font-size: $_40px
+	font-weight: 900
+	line-height: 54px
+	letter-spacing: -2.6px
+
+.text-block__description
+	color: #1b1b1b
+	font-weight: 400
+	font-size: $_32px
+	letter-spacing: -2.6px
+
+.text-block__sub-description
+	color: #1b1b1b
+	font-size: $_20px
+	font-weight: 400
+	margin: 22px 0 12px
+	letter-spacing: -1.6px
+
+.text-block__text
+	color: #2e2e2e
+	font-size: $_16px
+	font-weight: 200
+	margin-top: 24px
+	line-height: 30px
+
+.text-block__list
+	margin-bottom: 28px
+
+.text-block__list-item
+	font-size: $_16px
+	font-weight: 200
+	line-height: 30px
+	color: #2e2e2e
+
+.text-block__list-item>a, .text-block__text>a
+	text-decoration: underline
+
+.text-block__list-item::before
+	content: ""
+	display: inline-block
+	vertical-align: middle
+	width: 10px
+	height: 5px
+	margin: 0 12px
+	background-color: #1b1b1b
+
+.text-block__btn
+	background-color: #1a80c3
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2)
+	border-radius: 25px
+	font-weight: 400
+	text-transform: uppercase
+	letter-spacing: 2.6px
+	color: #fff
+	font-size: $_12px
+	padding: 18px 30px
+	display: block
+	margin: 38px auto 0
+
+.text-block__btn_elektromobilitat
+	background-color: #fdbf2b
+	color: #000
+	margin-top: 54px
+
+.text-block__video
+	margin: 40px auto
+	display: block
+	max-width: 100%
+
+.text-block__aside
+	margin: 50px auto
+	width: 450px
+	max-width: 100%
+	background-color: #ffcc4f
+	padding: 40px 50px
+	box-shadow: 0 21px 38px rgba(186, 88, 9, 0.31)
+	.text-block__sub-description
+		margin-top: 30px
+
+.text-block__aside_elektromobilitat
+
+.text-block__aside_warmepumpe
+	margin: 90px auto 0
+	background: #a0d8fd;
+	background: -moz-linear-gradient(-45deg, #a0d8fd 0%, #feebbd 100%)
+	background: -webkit-linear-gradient(-45deg, #a0d8fd 0%,#feebbd 100%)
+	background: linear-gradient(135deg, #a0d8fd 0%,#feebbd 100%)
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a0d8fd', endColorstr='#feebbd',GradientType=1 )
+	box-shadow: 0 21px 38px rgba(9, 80, 186, 0.31)
+	.text-block__sub-description
+		margin-top: 10px
+
+.text-block__aside-ico
+	height: 48px
+	fill: #000000
+
+.text-block__aside-ico_warmepumpe
+	margin: 10px 0
+
+.text-block-table
+	margin-top: 26px
+	width: 100%
+	text-align: center
+	font-weight: 200
+	line-height: 30px
+	font-size: $_16px
+	color: #000
+	tbody>tr:nth-child(odd)
+		background-color: #C7E3F6
+	tbody>tr>th
+		color:#fff
+		background-color: #1A80C3
+		font-weight: 200
+	tbody>tr>td, tbody>tr>th
+		padding: 5px 10px
+	tbody>tr>td:first-child
+		text-align: left
+		padding-left: 14px
+
+.text-block__fold-text
+	position: relative
+	padding: 10px 15% 30px 30px
+	margin-bottom: 32px
+	background-color: #FFF
+	box-shadow: 0 21px 38px rgba(182, 182, 182, 0.31)
+	.text-block__sub-description
+		margin: 12px 0 20px
+
+.text-block__fold-text_closed
+	padding: 10px 15% 10px 30px
+	.text-block__text
+		display: none
+
+.okostrom__img
+	display: block
+	margin: 36px auto -228px
+	max-width: 100%
+	box-shadow: 0 59px 109px rgba(77, 109, 141, 0.82)
+
+.kunden__img
+	display: block
+	margin: 50px auto 0
+	width: 100%
+	box-shadow: 0 21px 38px rgba(9, 80, 186, 0.31)
 
 // подключаем медиа-запросы
 @import media-queries
