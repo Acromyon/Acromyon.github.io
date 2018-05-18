@@ -143,22 +143,6 @@ function takeTip() {
 	postIndexCurrent.value = dataTip;
 }
 
-// Осветление svg-иконок при наведении
-
-const slotSet = document.getElementsByClassName('categories__slot-item');
-
-for (let i = 0; i < slotSet.length; i++) {
-	slotSet[i].addEventListener('mouseover', svgPaint);
-}
-
-function svgPaint() {
-	const svg = this.firstElementChild;
-	svg.classList.add('categories__slot-img_hover');
-	this.onmouseout = function () {
-		svg.classList.remove('categories__slot-img_hover');
-	};
-}
-
 // Разворачивание вкладок .text-block__fold-text
 
 const foldBtn = document.getElementsByClassName('text-block__fold-btn');
