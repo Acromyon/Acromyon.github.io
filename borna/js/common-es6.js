@@ -152,11 +152,10 @@ for (let i = 0; i < slotSet.length; i++) {
 }
 
 function svgPaint() {
-	const svg = this.firstElementChild.contentDocument.firstElementChild;
-	svg.style.transition = 'all .2s ease-out';
-	svg.style.fill = '#ffffff';
+	const svg = this.firstElementChild;
+	svg.classList.add('categories__slot-img_hover');
 	this.onmouseout = function () {
-		svg.style.fill = '#000000';
+		svg.classList.remove('categories__slot-img_hover');
 	};
 }
 
