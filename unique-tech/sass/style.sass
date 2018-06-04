@@ -1,6 +1,4 @@
-@import reset
-
-/* Шрифты, базовые параметры, и ClearFix */
+/* Подключение шрифтов */
 
 @font-face
 	font-family: 'Roboto'
@@ -11,6 +9,10 @@
 	font-family: 'OpenSans'
 	src: url('../fonts/OpenSans-Bold.eot')
 	src: url('../fonts/OpenSans-Bold.eot?#iefix') format('embedded-opentype'), url('../fonts/OpenSans-Bold.woff') format('woff'), url('../fonts/OpenSans-Bold.ttf') format('truetype')
+
+@import reset
+
+/* Шрифты, базовые параметры, и ClearFix */
 
 html
 	background-color: #fff
@@ -27,7 +29,7 @@ button:active
 	min-height: calc(100vh - 410px)
 
 .container
-	max-width: 97.5%
+	padding: 0 15px
 
 .clearfix:after
 	content: ""
@@ -40,7 +42,7 @@ button:active
 	background-color: #FFC038
 
 .inner-header
-	padding: 0 0 58px
+	padding: 0 15px 58px
 
 .header__logo
 	font-size: 1.4445rem
@@ -107,7 +109,7 @@ button:active
 	text-transform: uppercase
 	font-weight: 700
 	line-height: 2.7777rem
-	padding: 30px 0
+	padding: 30px 8px 30px 0
 	text-align: left
 
 .header__tagline:after
@@ -123,9 +125,9 @@ button:active
 	top: 40px
 
 .header__dropdown-menu_open
-	border: 7px solid #fff200
-	width: 70px
-	height: 70px
+	border: 5px solid #fff200
+	width: 60px
+	height: 60px
 	display: block
 	background-color: transparent
 	float: right
@@ -152,7 +154,7 @@ button:active
 	text-align: justify
 
 .header__view-more, .header__view-more-center
-	width: 300px
+	width: 250px
 	height: 50px
 	background-color: #464646
 	border-radius: 2px
@@ -182,7 +184,7 @@ button:active
 		top: 84px
 		left: 268px
 		transform: rotate(-28deg) scale(1.6,-1.6)
-		animation: headerFly 2s ease-in-out
+		animation: headerFly 2s ease-in-out forwards
 
 .header__slider-track
 	background: url("../img/fly-track.png") no-repeat
@@ -191,7 +193,7 @@ button:active
 	width: 365px
 	top: 55px
 	left: -95px
-	animation: headerTrack 2s ease-in-out
+	animation: headerTrack 2s ease-in-out forwards
 
 @keyframes headerTrack
 	from
@@ -263,9 +265,9 @@ button:active
 	overflow: hidden
 
 .services__appear-btn
-	margin: 142px auto 110px
+	margin: 60px auto
 	display: block
-	width: 330px
+	width: 250px
 	height: 55px
 	background-color: #464646
 	border-radius: 4px
@@ -276,6 +278,7 @@ button:active
 	color: #fff
 	position: relative
 	.fa-paper-plane
+		display: none
 		position: absolute
 		top: 16px
 		right: -32px
@@ -284,10 +287,11 @@ button:active
 
 .services__block
 	clear: both
-	padding: 70px 0 136px
+	padding: 0
 
 .services__img-block
 	position: relative
+	text-align: center
 
 .services__frame
 	width: 85%
@@ -296,7 +300,7 @@ button:active
 .services__pic
 	position: absolute
 	top: 8.5%
-	left: 12.5%
+	left: 19.8%
 	width: 60%
 	height: auto
 
@@ -304,7 +308,7 @@ button:active
 	font-weight: 700
 	color: #252525
 	text-transform: uppercase
-	margin-bottom: 8px
+	margin: 15px 0
 
 .services__text
 	font-weight: 300
@@ -322,16 +326,16 @@ button:active
 	font-family: OpenSans, sans-serif
 	color: #464646
 	font-size: 0.7223rem
-	margin-top: 14px
+	margin: 14px 0 50px
 
 .work-path
 	background: url("../img/bg-pattern.png") #F3F3F3
 	overflow: hidden
 
 .work-path__appear-btn
-	margin: 82px auto 82px
+	margin: 60px auto
 	display: block
-	width: 330px
+	width: 250px
 	height: 55px
 	background-color: #464646
 	border-radius: 4px
@@ -342,6 +346,7 @@ button:active
 	color: #fff
 	position: relative
 	.fa-paper-plane
+		display: none
 		position: absolute
 		top: 14px
 		left: -32px
@@ -349,9 +354,8 @@ button:active
 		transform: rotate(52deg) scale(-1)
 
 .work-path__img
-	display: block
 	margin: 0 auto 26px
-	width: 86%;
+	display: block
 	height: auto
 
 .features
@@ -359,9 +363,9 @@ button:active
 	overflow: hidden
 
 .features__appear-btn
-	margin: 132px auto 146px
+	margin: 60px auto
 	display: block
-	width: 330px
+	width: 250px
 	height: 55px
 	background-color: #464646
 	border-radius: 4px
@@ -372,6 +376,7 @@ button:active
 	color: #fff
 	position: relative
 	.fa-paper-plane
+		display: none
 		position: absolute
 		top: 16px
 		right: -32px
@@ -379,15 +384,15 @@ button:active
 		transform: rotate(-45deg) scale(1, -1)
 
 .features__map
-	margin: 80px 0
+	margin: 0
 	i
-		transform: scale(1.5)
+		transform: scale(1.6)
 		position: absolute
-		top: 28px
+		top: 20px
 		left: 16px
 
 .features__item
-	padding: 20px 36px 20px 62px
+	padding: 10px 36px 10px 62px
 	position: relative
 	transition: 0.3s
 	cursor: default
@@ -411,9 +416,9 @@ button:active
 	overflow: hidden
 
 .packages__appear-btn
-	margin: 40px auto 190px
+	margin: 40px auto
 	display: block
-	width: 330px
+	width: 250px
 	height: 55px
 	background-color: #464646
 	border-radius: 4px
@@ -424,6 +429,7 @@ button:active
 	color: #fff
 	position: relative
 	.fa-paper-plane
+		display: none
 		position: absolute
 		top: 14px
 		left: -32px
@@ -432,13 +438,13 @@ button:active
 
 .packages__offers
 	text-align: center
-	margin-bottom: 166px
+	margin-bottom: 0
 
 .packages__name
 	color: #8d8d8d
 	font-weight: 400
 	font-size: 1.2778rem
-	margin-bottom: 30px
+	margin-bottom: 20px
 
 .packages__property
 	color: #b3b3b3
@@ -448,7 +454,7 @@ button:active
 	margin: 0px -20px;
 
 .packages__price
-	margin-top: 52px
+	margin-top: 20px
 	color: #a5a5a5
 	font-size: 1.3889rem
 
@@ -456,11 +462,11 @@ button:active
 	font-size: 1.445em
 
 .packages__order
-	margin-top: 42px
+	margin: 20px 0 80px
 	box-shadow: 1px 1.7px 0 rgba(0, 0, 0, 0.1)
 	background-color: #a5a5a5
 	border-radius: 3px
-	width: 192px
+	width: 200px
 	height: 45px
 	color: #fff
 	text-transform: uppercase
@@ -469,6 +475,10 @@ button:active
 .packages__order_middle
 	font-family: Roboto, sans-serif
 	font-size: 0.9443rem
+	background-color: #f26c4f
+	height: 56px
+	width: 215px
+	margin-top: 30px
 
 .packages__name_middle
 	color: #f26c4f
@@ -489,12 +499,6 @@ button:active
 .packages__price-digit_middle
 	font-size: 3.7778rem
 
-.packages__order_middle
-	background-color: #f26c4f
-	height: 56px
-	width: 214px
-	margin-top: 30px
-
 .packages__name_last
 	color: #fbc73a
 
@@ -505,7 +509,6 @@ button:active
 	background-color: #ffc038
 
 .packages__offer_middle::before, .packages__offer_last::before
-	content: ""
 	width: 1px
 	background-color: #ffbf37
 	position: absolute
@@ -513,14 +516,14 @@ button:active
 	bottom: 100px
 
 .packages__offer_middle::before
-	left: 46px	
+	left: 11.7%
 
 .packages__offer_last::before
-	left: -32px
+	left: -16.6%
 
 .history
 	background: url("../img/bg-pattern.png") #F3F3F3
-	padding: 66px 0
+	padding: 30px 0
 	background-color: #FFF
 	overflow: hidden
 
@@ -536,7 +539,8 @@ button:active
 	margin-left: 10px
 
 .history__title
-	width: 220px
+	margin: 0 auto
+	width: 80%
 	height: 55px
 	background-color: #464646
 	border-radius: 3px
@@ -573,10 +577,10 @@ button:active
 	overflow: hidden
 
 .business__appear-btn
-	margin: 146px auto 136px
+	margin: 30px auto
 	display: block
-	width: 520px
-	height: 55px
+	width: 80%
+	min-height: 55px
 	background-color: #464646
 	border-radius: 4px
 	box-shadow: 1px 1.7px 4.8px 0.3px rgba(0, 0, 0, 0.25)
@@ -586,6 +590,7 @@ button:active
 	position: relative
 	font-family: OpenSans, sans-serif
 	.fa-paper-plane
+		display: none
 		position: absolute
 		top: 16px
 		right: -32px
@@ -596,7 +601,7 @@ button:active
 	background-color: #f4f4f4
 	font-size: 0
 	padding: 42px 6% 60px
-	margin-bottom: 116px
+	margin-bottom: 80px
 
 .business__item
 	display: inline-block
@@ -612,35 +617,35 @@ button:active
 	background-color: #FBC73A
 
 .business__img
-	height: 180px
+	height: 120px
 	background-repeat: no-repeat
 	background-image: url("../svg/business.svg")
 	margin: 13px 0
-	background-size: 810px
+	background-size: 650px
 
 .business__img_1
-	background-position: 18px -162px
+	background-position: 10px -162px
 
 .business__img_2
-	background-position: -196px -162px
+	background-position: -166px -162px
 
 .business__img_3
-	background-position: -409px -162px
+	background-position: -333px -162px
 
 .business__img_4
-	background-position: -618px -162px
+	background-position: -504px -162px
 
 .business__img_5
-	background-position: 16px 5px
+	background-position: 10px 5px
 
 .business__img_6
-	background-position: -196px 5px
+	background-position: -166px 5px
 
 .business__img_7
-	background-position: -409px 5px
+	background-position: -333px 5px
 
 .business__img_8
-	background-position: -618px 5px
+	background-position: -504px 5px
 
 .business__title
 	margin-bottom: 20px
@@ -650,10 +655,10 @@ button:active
 	overflow: hidden
 
 .team__appear-btn
-	margin: 0 auto 140px
+	margin: 36px auto
 	display: block
-	width: 447px
-	height: 55px
+	width: 80%
+	min-height: 55px
 	background-color: #464646
 	border-radius: 4px
 	box-shadow: 1px 1.7px 4.8px 0.3px rgba(0, 0, 0, 0.25)
@@ -663,6 +668,7 @@ button:active
 	position: relative
 	font-family: OpenSans, sans-serif
 	.fa-paper-plane
+		display: none
 		position: absolute
 		top: 14px
 		left: -32px
@@ -671,7 +677,7 @@ button:active
 
 .team__members
 	background-color: #ffc038
-	padding: 62px 0 20px
+	padding: 42px 0 0
 
 .team__member
 	display: inline-block
@@ -679,6 +685,7 @@ button:active
 	color: #F5F5F5
 	text-align: center
 	font-size: 0.8889rem
+	padding: 20px 0
 
 .team__member-photo
 	display: block
@@ -703,10 +710,10 @@ button:active
 	overflow: hidden
 
 .support__appear-btn
-	margin: 130px auto 152px
+	margin: 30px auto
 	display: block
-	width: 446px
-	height: 55px
+	width: 80%
+	min-height: 55px
 	background-color: #464646
 	border-radius: 4px
 	box-shadow: 1px 1.7px 4.8px 0.3px rgba(0, 0, 0, 0.25)
@@ -716,6 +723,7 @@ button:active
 	position: relative
 	font-family: OpenSans, sans-serif
 	.fa-paper-plane
+		display: none
 		position: absolute
 		top: 16px
 		right: -32px
@@ -741,21 +749,20 @@ button:active
 	font-family: OpenSans, sans-serif
 
 .support__img
-	width: 45%
+	width: 100%
 	height: auto
 
 .bottom-slider
 	background-color: #FFF
 	overflow: hidden
 
-.bottom-slider__inner 
+.bottom-slider__inner
 	border-top: 1px solid #FFEABE
-	padding: 112px 0 54px
-	margin: 0 7.333333% 84px
+	padding: 40px 0
+	margin: 0
 
 .bottom-slider__frame
 	background-color: #FFC038
-	height: 508px
 	overflow: hidden
 	position: relative
 
@@ -766,8 +773,7 @@ button:active
 	height: auto
 
 .bottom-slider__panel
-	height: 92px
-	margin-top: 416px
+	margin-top: 310px
 	background-color: #ffc038
 	position: relative
 	font-family: OpenSans, sans-serif
@@ -778,7 +784,7 @@ button:active
 	font-size: 1.2223rem
 	color: #fff
 	display: inline-block
-	margin-left: 50px
+	margin-left: 20px
 	line-height: 92px
 
 .bottom-slider__get-btn
@@ -791,22 +797,25 @@ button:active
 	color: #3a3a3a
 	font-size: 1.1112rem
 	text-transform: uppercase
-	margin: 20px 50px
+	margin: 20px 20px 20px 0
 	float: right
 
 /* Блок футера */
 
 .footer
 	background-color: #363636
-	height: 410px
+	min-height: 410px
 
 .inner-footer
+	padding-bottom: 20px
+
+.footer__map-block
 	padding-top: 40px
 
 .footer__map-title
 	color: #e6e9ed
 	text-transform: uppercase
-	margin-bottom: 26px
+	margin-bottom: 10px
 	font-weight: 500
 
 .footer__map-link
