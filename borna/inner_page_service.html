@@ -237,47 +237,77 @@
 						<div class="categories__slot"></div>
 					</div>
 					<div class="offer col-md-12 col-lg-6">
-						<div class="row">
-							<div class="offer__tabs hidden-xs hidden-sm hidden-md col-md-2">
-								<!-- <div class="offer__tab offer__tab_erdgas" data-tab="0">Erdgas</div> -->
-								<!-- <div class="offer__tab offer__tab_warme" data-tab="1">Wärme</div> -->
-								<div class="offer__tab offer__tab_strom offer__tab_open" data-tab="2">Strom</div>
-							</div>
-							<div class="offer__tabs hidden-lg col-xs-12">
-								<!-- <div class="offer__tab offer__tab_small offer__tab_erdgas" data-tab="0"></div> -->
-								<!-- <div class="offer__tab offer__tab_small offer__tab_warme" data-tab="1"></div> -->
-								<div class="offer__tab offer__tab_small offer__tab_strom offer__tab_open" data-tab="2"></div>
-							</div>
-							<div class="offer__cards-box col-xs-12 col-lg-10">
-								<div class="offer__card offer__card_strom">
-									<h4 class="offer__card-name">Strom</h4>
-									<p class="offer__card-post-index">
-										Ihre Postleitzahl<input name="post-index" type="text" class="post-index offer__card-post-index-volume" autocomplete="off">Bernburg
-									</p>
-									<ul id="drop-tips" class="offer__card-post-index-tips offer__card-post-index-tip_hidden">
-										<li class="offer__card-post-index-tip" data-tip="05411">05411 <span class="offer__card-post-index-city">Bernburg</span></li>
-										<li class="offer__card-post-index-tip" data-tip="05412">05412 <span class="offer__card-post-index-city">Bernburg</span></li>
-										<li class="offer__card-post-index-tip" data-tip="05413">05413 <span class="offer__card-post-index-city">Bernburg</span></li>
-										<li class="offer__card-post-index-tip" data-tip="05414">05414 <span class="offer__card-post-index-city">Bernburg</span></li>
-									</ul>
-									<p class="offer__card-residents-lot">Wieviele Personen liben in Ihrem Haushalt?</p>
-									<div class="offer__card-slider-box">
-										<ul class="offer__card-slider-graduate">
-											<li class="offer__card-slider-graduate-mark">1</li>
-											<li class="offer__card-slider-graduate-mark">2</li>
-											<li class="offer__card-slider-graduate-mark">3</li>
-											<li class="offer__card-slider-graduate-mark">4</li>
-											<li class="offer__card-slider-graduate-mark">5+</li>
-										</ul>
-										<div id="slider" class="offer__card-slider"></div>
-									</div>
-									<p class="offer__spend-per-year offer__spend-per-year_strom">Stromverbrauch pro Jahr
-										<span class="offer__spend-per-year-volume">30 800</span>
-									</p>
-									<button class="offer__card-calc">Berechnen</button>
+							<div class="row">
+								<div class="offer__tabs hidden-xs hidden-sm hidden-md col-md-2">
+									<div class="offer__tab offer__tab_erdgas offer__tab_open" data-tab="0">Erdgas</div>
+									<div class="offer__tab offer__tab_strom" data-tab="1">Strom</div>
+									<div class="offer__tab offer__tab_warme" data-tab="2">Wärme</div>
 								</div>
-								<div class="offer__card-base-sheet">
-									<!-- base sheet -->
+								<div class="offer__tabs hidden-lg col-xs-12">
+									<div class="offer__tab offer__tab_small offer__tab_erdgas offer__tab_open" data-tab="0"></div>
+									<div class="offer__tab offer__tab_small offer__tab_strom" data-tab="1"></div>
+									<div class="offer__tab offer__tab_small offer__tab_warme" data-tab="2"></div>
+								</div>
+								<div class="offer__cards-box col-xs-12 col-lg-10">
+									<div class="offer__card offer__card_erdgas">
+										<h4 class="offer__card-name">Erdgas</h4>
+										<p class="offer__card-post-index">
+											Ihre Postleitzahl<input name="post-index" type="text" class="post-index offer__card-post-index-volume" autocomplete="off">Bernburg
+										</p>
+										<ul id="drop-tips" class="offer__card-post-index-tips offer__card-post-index-tip_hidden">
+											<li class="offer__card-post-index-tip" data-tip="06407">06407 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="06408">06408 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="06409">06409 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="06410">06410 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="06310">06310 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="06210">06210 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="05410">05410 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="05410">05410 <span class="offer__card-post-index-city">Bernburg</span></li>
+										</ul>
+										<select name="choose-place" id="choose-place" placeholder="Ort Wahlen" class="offer__card-place">
+											<option value="1" selected>Ort Wahlen</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+										</select>
+										<p class="offer__spend-per-year">Erdgasverbrauch pro Jahr
+											<span class="offer__spend-per-year-volume">30 800</span>
+										</p>
+										<button class="offer__card-calc">Berechnen</button>
+									</div>
+									<div class="offer__card offer__card_strom offer__card_hidden">
+										<h4 class="offer__card-name">Strom</h4>
+										<p class="offer__card-post-index">
+											Ihre Postleitzahl<input name="post-index" type="text" class="post-index offer__card-post-index-volume" autocomplete="off">Bernburg
+										</p>
+										<ul id="drop-tips" class="offer__card-post-index-tips offer__card-post-index-tip_hidden">
+											<li class="offer__card-post-index-tip" data-tip="05411">05411 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="05412">05412 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="05413">05413 <span class="offer__card-post-index-city">Bernburg</span></li>
+											<li class="offer__card-post-index-tip" data-tip="05414">05414 <span class="offer__card-post-index-city">Bernburg</span></li>
+										</ul>
+										<p class="offer__card-residents-lot">Wieviele Personen liben in Ihrem Haushalt?</p>
+										<div class="offer__card-slider-box">
+											<ul class="offer__card-slider-graduate">
+												<li class="offer__card-slider-graduate-mark">1</li>
+												<li class="offer__card-slider-graduate-mark">2</li>
+												<li class="offer__card-slider-graduate-mark">3</li>
+												<li class="offer__card-slider-graduate-mark">4</li>
+												<li class="offer__card-slider-graduate-mark">5+</li>
+											</ul>
+											<div id="slider" class="offer__card-slider"></div>
+										</div>
+										<p class="offer__spend-per-year offer__spend-per-year_strom">Stromverbrauch pro Jahr
+											<span class="offer__spend-per-year-volume">30 800</span>
+										</p>
+										<button class="offer__card-calc">Berechnen</button>
+									</div>
+									<div class="offer__card offer__card_warme offer__card_hidden">
+										<h4 class="offer__card-name">Wärme</h4>
+										<p class="offer__card-post-index">At the moment the service is under development</p>
+									</div>
+									<div class="offer__card-base-sheet">
+										<!-- base sheet -->
+									</div>
 								</div>
 							</div>
 						</div>
