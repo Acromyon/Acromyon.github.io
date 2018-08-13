@@ -1,15 +1,6 @@
-//Оптимизация - разовое получение DOM
+//Получение объектов в переменных
 
 var doc = document;
-
-//Размножение блока промеж.значений
-
-for (i = 0; i < 5; i++){
-	var liItm = doc.querySelector('.notation__list-item').cloneNode(true);
-	doc.querySelector('.notation__list').appendChild(liItm);
-}
-
-//Получение объектов в переменных
 
 var digits = doc.querySelectorAll('.digit'),
 	operations = doc.querySelectorAll('.operator'),
@@ -21,6 +12,13 @@ var digits = doc.querySelectorAll('.digit'),
 	MemoryCurrentValue = 0,
 	MemoryNewValue = false,
 	MemoryPendingValue = '';
+
+//Генерация блока промеж.значений
+
+for (i = 0; i < 5; i++){
+	var liItm = doc.querySelector('.notation__list-item').cloneNode(true);
+	doc.querySelector('.notation__list').appendChild(liItm);
+}
 
 //Обработчики событий
 
@@ -104,8 +102,10 @@ function operation(operate){
 			MemoryCurrentValue -= parseFloat(localOperationMemory);
 		} else if (MemoryPendingValue === '×'){
 			MemoryCurrentValue *= parseFloat(localOperationMemory);
-		} else if (MemoryPendingValue === '÷'){
+		} else if (MemoryPendingValue === '÷' && localOperationMemory != 0){
 			MemoryCurrentValue /= parseFloat(localOperationMemory);
+		} else if (MemoryPendingValue === '÷' && localOperationMemory == 0){
+			MemoryCurrentValue = 'Error';
 		} else {
 			MemoryCurrentValue = parseFloat(localOperationMemory);
 		}
