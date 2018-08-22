@@ -1,15 +1,14 @@
 const doc = document;
 
-//Генерация блока промеж.значений
+// Генерация блока промеж.значений
 
 for (let i = 0; i < 5; i++) {
 	let liItm = doc.querySelector('.notation__list-item').cloneNode(true);
 	doc.querySelector('.notation__list').appendChild(liItm);
 }
 
-//Получение объектов в переменных
+// Получение объектов в переменных
 
-let allBtns = document.getElementsByTagName('button');
 let digits = doc.querySelectorAll('.digit');
 let operations = doc.querySelectorAll('.operator');
 let clearBtns = doc.querySelectorAll('.clear-btn');
@@ -20,15 +19,20 @@ let display = doc.getElementById('display');
 let MemoryCurrentValue = 0;
 let MemoryNewValue = false;
 let MemoryPendingValue = '';
+let blockedBtns = [...digits, ...operations, comma, backspace, clearBtns[1], ...saveData];
 
-//Обработчики событий
+// Обработчики событий
 
 for (let i = 0; i < digits.length; i++) {
-	digits[i].addEventListener('click', pressDigit);
+	digits[i].addEventListener('click', (e) => {
+		pressDigit(e.target.textContent);
+	});
 }
 
 for (let i = 0; i < operations.length; i++) {
-	operations[i].addEventListener('click', operation);
+	operations[i].addEventListener('click', (e) => {
+		operation(e.target.textContent);
+	});
 }
 
 for (let i = 0; i < clearBtns.length; i++) {
@@ -43,45 +47,47 @@ for (let i = 0; i < saveData.length; i++) {
 	saveData[i].addEventListener('click', makeSaveData);
 }
 
-//Ввод с клавиатуры
+// Ввод с клавиатуры
 
-addEventListener('keypress', function (event) {
+addEventListener('keypress', (e) => {
 	doc.querySelector('.focus-debug').focus();
 
-	let keyEvent = parseInt(String(event.charCode));
-	let keyEventValue = String.fromCharCode(event.charCode);
+	let keyEvent = e.charCode;
+	let keyEventValue = String.fromCharCode(keyEvent);
 
 	if (keyEvent > 47 && keyEvent < 58) {
 		pressDigit(keyEventValue);
-		keyPressSound();
-	} else if (keyEvent === 0
-			|| keyEvent === 13
-			|| keyEvent === 42
-			|| keyEvent === 43
-			|| keyEvent === 45
-			|| keyEvent === 47
-			|| keyEvent === 61) {
-		if (keyEvent === 13 || keyEvent === 0) {
-			keyEventValue = '=';
+	} else {
+		switch (keyEvent) {
+			case 13:
+				keyEventValue = '=';
+				operation(keyEventValue);
+				break;
+			case 42:
+				keyEventValue = '×';
+				operation(keyEventValue);
+				break;
+			case 47:
+				keyEventValue = '÷';
+				operation(keyEventValue);
+				break;
+			case 43:
+				operation(keyEventValue);
+				break;
+			case 45:
+				operation(keyEventValue);
+				break;
+			case 44:
+				decimal();
+				break;
 		}
-		if (keyEventValue === '*') {
-			keyEventValue = '×';
-		}
-		if (keyEventValue === '/') {
-			keyEventValue = '÷';
-		}
-		operation(keyEventValue);
-		keyPressSound();
-	} else if (keyEvent === 46) {
-		decimal();
-		keyPressSound();
 	}
 });
 
-//Операции
+// Операции
 
-function pressDigit(e) {
-	let digit = e.target.textContent;
+function pressDigit(digit) {
+	playSound();
 
 	if (MemoryNewValue) {
 		display.value = digit;
@@ -93,32 +99,38 @@ function pressDigit(e) {
 	}
 }
 
-function operation(e) {
-	let operate = e.target.textContent;
+function operation(operate) {
+	playSound();
+
 	let localOperationMemory = display.value;
 
-	if (MemoryNewValue && MemoryPendingValue != '=') {
+	if (MemoryNewValue && MemoryPendingValue !== '=') {
 		display.value = MemoryCurrentValue;
 	} else {
 		MemoryNewValue = true;
-		if (MemoryPendingValue === '+') {
-			MemoryCurrentValue += parseFloat(localOperationMemory);
-		} else if (MemoryPendingValue === '-') {
-			MemoryCurrentValue -= parseFloat(localOperationMemory);
-		} else if (MemoryPendingValue === '×') {
-			MemoryCurrentValue *= parseFloat(localOperationMemory);
-		} else if (MemoryPendingValue === '÷' && localOperationMemory !== '0') {
-			MemoryCurrentValue /= parseFloat(localOperationMemory);
-		} else if (MemoryPendingValue === '÷' && localOperationMemory === '0') {
-			MemoryCurrentValue = 'Error';
-			let blockedBtns = [...digits, ...operations, comma, backspace, ...saveData];
 
-			for (let i = 0; i < blockedBtns.length; i++) {
-				blockedBtns[i].setAttribute('disabled', 'disabled');
-			}
-		} else {
-			MemoryCurrentValue = parseFloat(localOperationMemory);
+		switch (MemoryPendingValue) {
+			case '+':
+				MemoryCurrentValue += parseFloat(localOperationMemory);
+				break;
+			case '-':
+				MemoryCurrentValue -= parseFloat(localOperationMemory);
+				break;
+			case '×':
+				MemoryCurrentValue *= parseFloat(localOperationMemory);
+				break;
+			case '÷':
+				if (localOperationMemory !== '0') {
+					MemoryCurrentValue /= parseFloat(localOperationMemory);
+				} else {
+					MemoryCurrentValue = 'Error';
+					blockBtns();
+				}
+				break;
+			default:
+				MemoryCurrentValue = parseFloat(localOperationMemory);
 		}
+
 		if (operate !== '=') {
 			display.value = MemoryCurrentValue + operate;
 			MemoryPendingValue = operate;
@@ -127,52 +139,41 @@ function operation(e) {
 			MemoryPendingValue = operate;
 		}
 	}
-
-	let testNumber = display.value.indexOf('.');
-
-	if (display.value.length > 11 && testNumber !== -1) {
-		display.value = MemoryCurrentValue.toFixed(10 - MemoryCurrentValue.toFixed().length);
-		while (display.value.slice(-1) === '0') {
-			let str = display.value;
-			display.value = str.substr(0, str.length - 1);
-		}
-	}
-	if (display.value.length > 11 && testNumber === -1) {
-		display.value = 'TooMuchBro!';
-	}
+	checkLength();
 }
 
 function clear(e) {
-	let id = e.target.id;
+	playSound();
 
-	for (let i = 0; i < allBtns.length; i++) {
-		allBtns[i].removeAttribute('disabled');
-	}
-
-	if (id === 'clear-entry') {
+	if (e.target.id === 'clear-entry') {
 		display.value = '0';
 		MemoryNewValue = true;
-	} else if (id === 'clear-all' || id === 'clear-creeper') {
+	} else {
 		display.value = '0';
 		MemoryNewValue = true;
 		MemoryCurrentValue = 0;
 		MemoryPendingValue = '';
+		for (let i = 0; i < blockedBtns.length; i++) {
+			blockedBtns[i].removeAttribute('disabled');
+		}
 	}
 }
 
 function decimal() {
-	let localDecimalMemory = display.value;
+	playSound();
 
 	if (MemoryNewValue) {
-		localDecimalMemory = '0.';
+		display.value = '0.';
 		MemoryNewValue = false;
-	} else if (localDecimalMemory.indexOf('.') === -1) {
-		localDecimalMemory += '.';
-		}
-	display.value = localDecimalMemory;
+	}
+	if (display.value.indexOf('.') === -1) {
+		display.value += '.';
+	}
 }
 
 function makeBackspace() {
+	playSound();
+
 	let str = display.value;
 
 	if (display.value.indexOf('*') === -1
@@ -186,8 +187,9 @@ function makeBackspace() {
 }
 
 function makeSaveData(e) {
+	playSound();
+
 	let slot = e.target.closest('.save-data');
-	console.log(slot);
 
 	if (slot.nextElementSibling.value === '') {
 		slot.nextElementSibling.value = display.value;
@@ -195,6 +197,32 @@ function makeSaveData(e) {
 	} else {
 		slot.nextElementSibling.value = null;
 		slot.classList.remove('notation__btn_remove');
+	}
+}
+
+// Проверка на длину
+
+function checkLength() {
+	let isDecimal = display.value.indexOf('.');
+
+	if (display.value.length > 11 && isDecimal !== -1) {
+		display.value = MemoryCurrentValue.toFixed(10 - MemoryCurrentValue.toFixed().length);
+		while (display.value.slice(-1) === '0') {
+			let str = display.value;
+			display.value = str.substr(0, str.length - 1);
+		}
+	}
+	if (display.value.length > 11 && isDecimal === -1) {
+		display.value = 'TooMuchBro!';
+		blockBtns();
+	}
+}
+
+// Заморозить кнопки
+
+function blockBtns() {
+	for (let i = 0; i < blockedBtns.length; i++) {
+		blockedBtns[i].setAttribute('disabled', 'disabled');
 	}
 }
 
@@ -215,17 +243,7 @@ soundToggle.addEventListener('click', function () {
 	}
 });
 
-let btns = doc.querySelectorAll('button');
-for (let i = 0; i < btns.length; i++) {
-	let btn = btns[i];
-	btn.addEventListener('mousedown', () => {
-		if (soundOn) {
-			sound.play();
-		}
-	}, false);
-}
-
-function keyPressSound() {
+function playSound() {
 	if (soundOn) {
 		sound.play();
 	}
