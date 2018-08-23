@@ -59,25 +59,32 @@ addEventListener('keypress', (e) => {
 		pressDigit(keyEventValue);
 	} else {
 		switch (keyEvent) {
-			case 13:
+			case 0: // "Enter" -> "=" для FireFox
 				keyEventValue = '=';
 				operation(keyEventValue);
 				break;
-			case 42:
+			case 13: // "Enter" -> "="
+				keyEventValue = '=';
+				operation(keyEventValue);
+				break;
+			case 42: // "*" -> "×"
 				keyEventValue = '×';
 				operation(keyEventValue);
 				break;
-			case 47:
+			case 47: // "/" -> "÷"
 				keyEventValue = '÷';
 				operation(keyEventValue);
 				break;
-			case 43:
+			case 43: // "+"
 				operation(keyEventValue);
 				break;
-			case 45:
+			case 45: // "-"
 				operation(keyEventValue);
 				break;
-			case 44:
+			case 46: // "." для FireFox
+				decimal();
+				break;
+			case 44: // "."
 				decimal();
 				break;
 		}
@@ -189,7 +196,7 @@ function makeBackspace() {
 function makeSaveData(e) {
 	playSound();
 
-	let slot = e.target.closest('.save-data');
+	let slot = e.currentTarget;
 
 	if (slot.nextElementSibling.value === '') {
 		slot.nextElementSibling.value = display.value;

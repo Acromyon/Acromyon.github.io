@@ -1,0 +1,41 @@
+// Анимации самолётиков
+
+.title-btn
+	.right
+		top: 30%
+		right: -10%
+	.right.plane-fly
+		animation: planeFlyRight 1.2s ease-in-out forwards
+	.left
+		top: 30%
+		left: -10%
+	.left.plane-fly
+		animation: planeFlyLeft 1.2s ease-in-out forwards
+
+@keyframes planeFlyRight
+	from
+		top: 30%
+		right: -10%
+		transform: rotate(-45deg) scaleY(-1);
+	50%
+		top: 130%
+		right: -75%
+		transform: rotate(60deg) scaleY(-1);
+	to
+		top: 220%
+		right: 40%
+		transform: rotate(115deg) scaleY(-1);
+
+@keyframes planeFlyLeft
+	from
+		top: 30%
+		left: -10%
+		transform: rotate(52deg) scale(-1);
+	50%
+		top: 130%
+		left: -75%
+		transform: rotate(-60deg) scale(-1);
+	to
+		top: 220%
+		left: 40%
+		transform: rotate(-120deg) scale(-1);
