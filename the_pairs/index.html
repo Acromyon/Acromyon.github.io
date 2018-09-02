@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>The Pairs</title>
+	<link href="css/font-awesome.min.css" rel="stylesheet">
+	<link href="css/main.min.css" rel="stylesheet" type="text/css">
+	<link href="favicon.ico" rel="icon" type="image/x-icon">
+	<script src="js/vue.min.js" defer></script>
+	<script src="js/common.min.js" defer></script>
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="inner-header container">
+				&#xab;The Pairs&#xbb;
+			</div>
+		</header>
+		<div id="app">
+			<section class="progress-bar">
+				<div class="container">
+					<div class="progress-bar__box">
+						<div class="progress-bar__line"
+							 :style="'width:' + percentageProgress + '%;'">
+						</div>
+						<div class="progress-bar__score">
+							{{ donePairs }} / {{ this.cards.length / 2 }}
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="play-area">
+				<div class="cards container">
+					<div :class="'cards__card cards__card_' + card.state + ' cards__card_' + card.suit + card.seniority"
+						 @click="openCards(index)"
+						 v-for="card, index in cards">
+						<ul v-if="card.state !== 'closed'"
+							:class="(card.suit > 1) ? 'cards__card-red' : false">
+							<li class="cards__card-seniority"
+								v-if="card.seniority < 11">
+								{{ card.seniority }}
+							</li>
+							<li class="cards__card-seniority"
+								v-if="card.seniority === 11">
+								J
+							</li>
+							<li class="cards__card-seniority"
+								v-if="card.seniority === 12">
+								Q
+							</li>
+							<li class="cards__card-seniority"
+								v-if="card.seniority === 13">
+								K
+							</li>
+							<li class="cards__card-suit"
+								v-if="card.suit === 0">
+								&spades;
+							</li>
+							<li class="cards__card-suit"
+								v-if="card.suit === 1">
+								&clubs;
+							</li>
+							<li class="cards__card-suit"
+								v-if="card.suit === 2">
+								&hearts;
+							</li>
+							<li class="cards__card-suit"
+								v-if="card.suit === 3">
+								&diams;
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<div v-if="donePairs === 12">
+				<div class="fade-background"></div>
+				<div class="done-alert">
+					<h2 class="done-alert__congrats">Congrats! Your time is {{ parseInt(timer / 60) }}:{{ timer % 60 }}</h2>
+					<div class="done-alert__btns-block">
+						<button class="done-alert__btn done-alert__btn_again"
+								@click="getCardSet">
+							Again!
+						</button>
+						<button class="done-alert__btn"
+								@click="closeTab">
+							Close the tab..
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer class="footer">
+		<div class="inner-footer container">
+			Den Domrachev, 2018
+		</div>
+	</footer>
+</body>
+</html>
