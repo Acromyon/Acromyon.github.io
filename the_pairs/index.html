@@ -40,7 +40,7 @@
 						 v-for="card, index in cards"
 						 @click="openCards(index)">
 						<div class="cards__card-front"
-							 :style="'background-image: url(../img/cards/' + card.suit + card.seniority + '.gif;'">
+							 :style="'background-image: url(img/cards/' + card.suit + card.seniority + '.gif;'">
 							<ul v-if="card.state !== 'closed'"
 								:class="(card.suit > 1) ? 'cards__card-red' : false">
 								<li class="cards__card-seniority"
