@@ -20,7 +20,7 @@ let app = new Vue({
 			this.timer = 0;
 			while (this.cards.length < 12) {
 				let card = {};
-				card.seniority = Math.floor(this.getRandomNumber(2, 13));
+				card.seniority = Math.floor(this.getRandomNumber(1, 13));
 				card.suit = Math.floor(this.getRandomNumber(0, 3));
 				let isDouble = this.checkDoubleCards(card);
 				if (isDouble) {
@@ -60,7 +60,7 @@ let app = new Vue({
 			return Math.random() - 0.5;
 		},
 		openCards(index) {
-			if (!this.cardsFrozen && this.cards[index].state !== 'opened') {
+			if (!this.cardsFrozen && this.cards[index].state === 'closed') {
 				this.cards[index].state = 'opened';
 				this.currentCards.push(this.cards[index]);
 				if (this.currentCards.length === 2 &&
@@ -101,9 +101,6 @@ let app = new Vue({
 			if (this.donePairs === 12) {
 				this.cardsFrozen = true;
 			}
-		},
-		closeTab() {
-			window.close();
 		}
 	},
 	created() {
