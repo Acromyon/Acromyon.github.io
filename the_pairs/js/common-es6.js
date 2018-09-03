@@ -18,16 +18,30 @@ let app = new Vue({
 			this.donePairs = 0;
 			this.cardsFrozen = false;
 			this.timer = 0;
-			for (let i = 0; i < 12; i++) {
-				this.cards.push({});
-				this.cards[i].seniority = Math.floor(this.getRandomNumber(2, 13));
-				this.cards[i].suit = Math.floor(this.getRandomNumber(0, 3));
-				this.$set(this.cards[i], 'state', 'closed');
+			while (this.cards.length < 12) {
+				let card = {};
+				card.seniority = Math.floor(this.getRandomNumber(2, 13));
+				card.suit = Math.floor(this.getRandomNumber(0, 3));
+				let isDouble = this.checkDoubleCards(card);
+				if (isDouble) {
+					continue;
+				}
+				this.$set(card, 'state', 'closed');
+				this.cards.push(card);
 			}
 			this.duplicateCardSet();
 		},
 		getRandomNumber(min, max) {
 			return min + (Math.random() * (max + 1 - min));
+		},
+		checkDoubleCards(card) {
+			for (let i = 0; i < this.cards.length; i++) {
+				if (this.cards[i].seniority === card.seniority &&
+					this.cards[i].suit === card.suit) {
+					return true;
+				}
+			}
+			return false;
 		},
 		duplicateCardSet() {
 			let cloneArray = [];
@@ -62,7 +76,7 @@ let app = new Vue({
 					this.cardsFrozen = true;
 					setTimeout(() => {
 						this.closeCards();
-					}, 1200);
+					}, 1250);
 				}
 			}
 		},

@@ -37,44 +37,47 @@
 			</section>
 			<section class="play-area">
 				<div class="cards container">
-					<div :class="'cards__card cards__card_' + card.state + ' cards__card_' + card.suit + card.seniority"
-						 @click="openCards(index)"
-						 v-for="card, index in cards">
-						<ul v-if="card.state !== 'closed'"
-							:class="(card.suit > 1) ? 'cards__card-red' : false">
-							<li class="cards__card-seniority"
-								v-if="card.seniority < 11">
-								{{ card.seniority }}
-							</li>
-							<li class="cards__card-seniority"
-								v-if="card.seniority === 11">
-								J
-							</li>
-							<li class="cards__card-seniority"
-								v-if="card.seniority === 12">
-								Q
-							</li>
-							<li class="cards__card-seniority"
-								v-if="card.seniority === 13">
-								K
-							</li>
-							<li class="cards__card-suit"
-								v-if="card.suit === 0">
-								&spades;
-							</li>
-							<li class="cards__card-suit"
-								v-if="card.suit === 1">
-								&clubs;
-							</li>
-							<li class="cards__card-suit"
-								v-if="card.suit === 2">
-								&hearts;
-							</li>
-							<li class="cards__card-suit"
-								v-if="card.suit === 3">
-								&diams;
-							</li>
-						</ul>
+					<div :class="'cards__card' + ' cards__card_' + card.state"
+						 v-for="card, index in cards"
+						 @click="openCards(index)">
+						<div :class="'cards__card-front' + ' cards__card_' + card.suit + card.seniority">
+							<ul v-if="card.state !== 'closed'"
+								:class="(card.suit > 1) ? 'cards__card-red' : false">
+								<li class="cards__card-seniority"
+									v-if="card.seniority < 11">
+									{{ card.seniority }}
+								</li>
+								<li class="cards__card-seniority"
+									v-if="card.seniority === 11">
+									J
+								</li>
+								<li class="cards__card-seniority"
+									v-if="card.seniority === 12">
+									Q
+								</li>
+								<li class="cards__card-seniority"
+									v-if="card.seniority === 13">
+									K
+								</li>
+								<li class="cards__card-suit"
+									v-if="card.suit === 0">
+									&spades;
+								</li>
+								<li class="cards__card-suit"
+									v-if="card.suit === 1">
+									&clubs;
+								</li>
+								<li class="cards__card-suit"
+									v-if="card.suit === 2">
+									&hearts;
+								</li>
+								<li class="cards__card-suit"
+									v-if="card.suit === 3">
+									&diams;
+								</li>
+							</ul>
+						</div>
+						<div class="cards__card-back"></div>
 					</div>
 				</div>
 			</section>
@@ -89,7 +92,7 @@
 						</button>
 						<button class="done-alert__btn"
 								@click="closeTab">
-							Close the tab..
+							Close..
 						</button>
 					</div>
 				</div>
