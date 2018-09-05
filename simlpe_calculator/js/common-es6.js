@@ -49,45 +49,49 @@ for (let i = 0; i < saveData.length; i++) {
 
 // Ввод с клавиатуры
 
-addEventListener('keypress', (e) => {
+addEventListener('keydown', (e) => {
 	doc.querySelector('.focus-debug').focus();
+	let keyEventValue;
 
-	let keyEvent = e.charCode;
-	let keyEventValue = String.fromCharCode(keyEvent);
+	switch (e.keyCode) {
+		case 13: // "Enter"
+			keyEventValue = '=';
+			operation(keyEventValue);
+			break;
+		case 106: // "*"
+			keyEventValue = '×';
+			operation(keyEventValue);
+			break;
+		case 111: // "/"
+			keyEventValue = '÷';
+			operation(keyEventValue);
+			break;
+		case 107: // "+"
+			keyEventValue = '+';
+			operation(keyEventValue);
+			break;
+		case 109: // "-"
+			keyEventValue = '-';
+			operation(keyEventValue);
+			break;
+		case 110: // "."
+			decimal();
+			break;
+		case 8: // "Backspace"
+			makeBackspace();
+			break;
+		case 27: // "Esc"
+			clear(e);
+			break;
+		default:
+			// do nothing
+	}
+});
 
-	if (keyEvent > 47 && keyEvent < 58) {
+addEventListener('keypress', (e) => {
+	if (e.charCode > 47 && e.charCode < 58) {
+		let keyEventValue = String.fromCharCode(e.charCode);
 		pressDigit(keyEventValue);
-	} else {
-		switch (keyEvent) {
-			case 0: // "Enter" -> "=" для FireFox
-				keyEventValue = '=';
-				operation(keyEventValue);
-				break;
-			case 13: // "Enter" -> "="
-				keyEventValue = '=';
-				operation(keyEventValue);
-				break;
-			case 42: // "*" -> "×"
-				keyEventValue = '×';
-				operation(keyEventValue);
-				break;
-			case 47: // "/" -> "÷"
-				keyEventValue = '÷';
-				operation(keyEventValue);
-				break;
-			case 43: // "+"
-				operation(keyEventValue);
-				break;
-			case 45: // "-"
-				operation(keyEventValue);
-				break;
-			case 46: // "." для FireFox
-				decimal();
-				break;
-			case 44: // "."
-				decimal();
-				break;
-		}
 	}
 });
 
@@ -127,22 +131,22 @@ function operation(operate) {
 				MemoryCurrentValue *= parseFloat(localOperationMemory);
 				break;
 			case '÷':
-				if (localOperationMemory !== '0') {
-					MemoryCurrentValue /= parseFloat(localOperationMemory);
-				} else {
+				if (localOperationMemory === '0') {
 					MemoryCurrentValue = 'Error';
 					blockBtns();
+				} else {
+					MemoryCurrentValue /= parseFloat(localOperationMemory);
 				}
 				break;
 			default:
 				MemoryCurrentValue = parseFloat(localOperationMemory);
 		}
 
-		if (operate !== '=') {
-			display.value = MemoryCurrentValue + operate;
+		if (operate === '=') {
+			display.value = MemoryCurrentValue;
 			MemoryPendingValue = operate;
 		} else {
-			display.value = MemoryCurrentValue;
+			display.value = MemoryCurrentValue + operate;
 			MemoryPendingValue = operate;
 		}
 	}
@@ -152,7 +156,7 @@ function operation(operate) {
 function clear(e) {
 	playSound();
 
-	if (e.target.id === 'clear-entry') {
+	if (e.type === 'click' && e.target.id === 'clear-entry') {
 		display.value = '0';
 		MemoryNewValue = true;
 	} else {
@@ -183,13 +187,16 @@ function makeBackspace() {
 
 	let str = display.value;
 
-	if (display.value.indexOf('*') === -1
-		&& display.value.indexOf('/') === -1
-		&& display.value.indexOf('+') === -1
-		&& display.value.indexOf('-') === -1
-		&& display.value.indexOf('÷') === -1
-		&& display.value.indexOf('×') === -1) {
-		str.length > 1 ? display.value = str.substr(0, str.length - 1) : display.value = '0';
+	if (display.value.indexOf('*') === -1 &&
+		display.value.indexOf('/') === -1 &&
+		display.value.indexOf('+') === -1 &&
+		display.value.indexOf('-') === -1 &&
+		display.value.indexOf('÷') === -1 &&
+		display.value.indexOf('×') === -1 &&
+		str.length > 1) {
+			display.value = str.substr(0, str.length - 1);
+	} else {
+		display.value = '0';
 	}
 }
 
@@ -241,8 +248,8 @@ sound.src = 'aud/sound.mp3';
 let soundOn = true;
 let soundToggle = doc.querySelector('.sound-toggle');
 
-soundToggle.addEventListener('click', function () {
-	this.classList.toggle('sound-toggle_off');
+soundToggle.addEventListener('click', (e) => {
+	e.target.classList.toggle('sound-toggle_off');
 	if (soundOn) {
 		soundOn = false;
 	} else {
