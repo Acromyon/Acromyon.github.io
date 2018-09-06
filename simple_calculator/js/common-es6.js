@@ -50,7 +50,7 @@ for (let i = 0; i < saveData.length; i++) {
 // Ввод с клавиатуры
 
 addEventListener('keydown', (e) => {
-	doc.querySelector('.focus-debug').focus();
+
 	let keyEventValue;
 
 	switch (e.keyCode) {

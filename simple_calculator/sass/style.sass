@@ -3,7 +3,7 @@
 	padding: 0
 	border: 0
 	box-sizing: border-box
-	&::selection, &::-moz-selection
+	&::selection
 		background: #F4DE9D
 
 html
@@ -33,19 +33,15 @@ body
 
 .logo__name
 	text-align: center
-	font: 42px 'Press Start 2P', cursive
+	font: 42px 'Press Start 2P', monospace
 	color: #ED941C
-	-ms-user-select: none
-	-moz-user-select: none
-	-webkit-user-select: none
+	user-select: none
 
 .logo__delimiter
 	text-align: center
-	font: 42px 'Press Start 2P', cursive
+	font: 42px 'Press Start 2P', monospace
 	color: #ED941C
-	-ms-user-select: none
-	-moz-user-select: none
-	-webkit-user-select: none
+	user-select: none
 	margin-top: -30px
 
 // Основная секция
@@ -75,7 +71,6 @@ body
 	padding: 0 10px
 	color: #fff
 	background-color: #DB820A
-	box-sizing: border-box
 	border-radius: 4px
 	font: 38px 'Press Start 2P', cursive
 	text-align: right
@@ -135,6 +130,14 @@ td:last-child .counter__btn
 		box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.5)
 		cursor: not-allowed
 
+.hint
+	margin-top: 4px
+	margin-left: 20px
+	font: 14px 'Comic Sans MS' cursive
+	font-style: italic
+	font-weight: 600
+	color: #f4de9d
+
 // хак для FireFox
 
 .focus-debug
@@ -175,9 +178,7 @@ td:last-child .counter__btn
 	text-align: center
 	font: 18px 'Press Start 2P', cursive
 	color: #ED941C
-	-ms-user-select: none
-	-moz-user-select: none
-	-webkit-user-select: none
+	user-select: none
 
 .notation__list-item
 	list-style: none
@@ -191,7 +192,6 @@ td:last-child .counter__btn
 	float: left
 	margin: 22px 0 0 4px
 	border: 3px solid #fff
-	box-sizing: border-box
 	box-shadow: 0 0 0 1px #888, inset 0 0 0 1px #888
 	cursor: pointer
 	&:hover
