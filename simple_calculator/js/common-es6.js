@@ -15,6 +15,7 @@ let clearBtns = doc.querySelectorAll('.clear-btn');
 let comma = doc.getElementById('comma');
 let backspace = doc.getElementById('backspace');
 let saveData = doc.querySelectorAll('.save-data');
+let focusDebug = doc.querySelector('.focus-debug');
 let display = doc.getElementById('display');
 let MemoryCurrentValue = 0;
 let MemoryNewValue = false;
@@ -77,7 +78,7 @@ addEventListener('keydown', (e) => {
 		case 110: // "."
 			decimal();
 			break;
-		case 8: // "Backspace"
+		case 46: // "Del"
 			makeBackspace();
 			break;
 		case 27: // "Esc"
@@ -212,6 +213,7 @@ function makeSaveData(e) {
 		slot.nextElementSibling.value = null;
 		slot.classList.remove('notation__btn_remove');
 	}
+	focusDebug.focus();
 }
 
 // Проверка на длину
