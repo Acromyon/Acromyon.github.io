@@ -7,6 +7,11 @@
 	<title>The Pairs</title>
 	<link href="css/main.min.css" rel="stylesheet" type="text/css">
 	<link href="favicon.ico" rel="icon" type="image/x-icon">
+	<script type="text/javascript" defer>
+		if (/MSIE \d|Trident.*rv:/.test(navigator.userAgent)) {
+			document.write('<script src="https://cdn.polyfill.io/v2/polyfill.min.js"><\/script>');
+		}
+	</script>
 	<script src="js/vue.min.js" defer></script>
 	<script src="js/common.min.js" defer></script>
 	<!--[if lt IE 9]>
@@ -40,7 +45,7 @@
 						 v-for="card, index in cards"
 						 @click="openCards(index)">
 						<div class="cards__card-front"
-							 :style="'background-image: url(img/cards/' + card.suit + card.seniority + '.gif;'">
+							 :style="'background-image: url(img/cards/' + card.suit + card.seniority + '.gif);'">
 							<ul v-if="card.state !== 'closed'"
 								:class="(card.suit > 1) ? 'cards__card-red' : false">
 								<li class="cards__card-seniority"

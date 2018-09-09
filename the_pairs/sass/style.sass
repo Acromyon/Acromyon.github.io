@@ -98,23 +98,34 @@ button:active
 	height: 100%
 	border-radius: 8px
 	background-repeat: no-repeat
-	backface-visibility: hidden;
+	backface-visibility: hidden
 
 .cards__card-front
 	padding-top: 10px
 	z-index: 2
-	transform: rotateY(-180deg);
+	transform: rotateY(-180deg)
 	background-size: contain
 	background-position-x: center
 
 .cards__card-back
-	transform: rotateY(0);
+	transform: rotateY(0)
 	background-image: url(../img/reverse.png)
 	background-size: cover
 
 .cards__card_done, .cards__card_opened
 	transform: rotateY(-180deg)
 	z-index: 3
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none)
+	.cards__card-front
+		backface-visibility: visible
+
+	.cards__card_closed > .cards__card-front
+		backface-visibility: hidden
+
+	.cards__card_done > .cards__card-front,
+	.cards__card_opened > .cards__card-front
+		background-color: #fff
 
 .cards__card-red
 	color: #F00
