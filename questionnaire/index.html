@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Document</title>
+	<link href="css/main.min.css" rel="stylesheet" type="text/css">
+	<link href="favicon.ico" rel="icon" type="image/x-icon">
+	<script src="js/vue.min.js"></script>
+	<script src="js/common.min.js" defer></script>
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body>
+	<div class="wrapper"
+		 id="app">
+		<header class="header">
+			<div class="inner-header container">
+				<nav class="header__nav">
+					<a :href="'#'+ index"
+					   @click.prevent="smoothScrollStart(index)"
+					   v-for="(link, index) in headerLinks"
+					   :style="'line-height: ' + headerHeight + 'px'"
+					   :class="'header__nav-link' + (link.isActive ? ' header__nav-link_active' : '')">
+						{{ link.name }}
+					</a>
+				</nav>
+			</div>
+		</header>
+		<div class="main"
+			 @mouseup="stopSliderToggle">
+			<h1 class="main__title">Анкета</h1>
+			<section id="0" class="personal-info">
+				<div class="container">
+					<h3 class="section-title personal-info__title">Личная информация</h3>
+					<input value="Домрачев Денис Олегович" name="name" type="text" class="personal-info__input" placeholder="ФИО">
+					<div class="personal-info__select-wrap">
+						<select name="year"
+								id="select-year"
+								class="personal-info__select"
+								v-model="selectedYear"
+								@change="changeSelectedYear">
+							<option class="personal-info__option personal-info__option_no-choice"
+									:value="null">
+								Год рождения
+							</option>
+							<option class="personal-info__option"
+									v-for="year in yearsRange"
+									:value="year"
+									:selected="year === parseInt(selectedYear)">
+								{{ year }}
+							</option>
+						</select>
+					</div>
+					<input value="Казань" name="date-of-birth" type="text" class="personal-info__input" placeholder="Место проживания">
+					<input value="dendomrachev" name="skype" type="text" class="personal-info__input" placeholder="Skype">
+					<input value="doc.domrachev@mail.ru" name="email" type="text" class="personal-info__input" placeholder="E-mail">
+				</div>
+			</section>
+			<section id="1" class="experience">
+				<div class="container">
+					<h3 class="section-title experience__title">Расскажите о своем опыте</h3>
+					<div class="experience__checkboxes">
+						<div :class="'experience__checkbox-block experience__checkbox-block_' + experienceSet.blocks[index]"
+							 v-for="(expBlock, index) in experienceSet.items">
+							<label class="experience__checkbox-name"
+								   v-for="expItem in expBlock">
+								<input type="checkbox" class="experience__checkbox" checked>
+								<span class="pseudo-checkbox"></span>
+								{{ expItem }}
+							</label>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="2" class="javascript">
+				<div class="container">
+					<h3 class="section-title javascript__title">Уровень владения JavaScript</h3>
+					<div class="javascript__level-block">
+						<div class="javascript__level">Не владею</div>
+						<div class="javascript__level">Использую готовые<br>решения</div>
+						<div class="javascript__level">Использую готовые решения<br>и умею и переделывать</div>
+						<div class="javascript__level">Пишу сложный JS с нуля</div>
+					</div>
+					<div class="javascript__slider">
+						<div class="javascript__slider-range"></div>
+						<div class="javascript__slider-selected-range"
+							 :style="'width: ' + sliderTogglePosition + '%'">
+						</div>
+						<div class="javascript__slider-toggle"
+							 :style="'left: calc(' + sliderTogglePosition + '% - 13px)'"
+							 @mousedown.prevent="startSliderToggle">
+						</div>
+					</div>
+				</div>
+			</section>
+			<section id="3" class="about-me">
+				<div class="container">
+					<h3 class="section-title about-me__title">Расскажите о себе</h3>
+					<p class="about-me__description">Напишите несколько предложений, чем привлекла наша вакансия<br>и что вы ожидаете от работы у нас.</p>
+					<textarea type="text" class="about-me__text-area" placeholder="Понравилась тем, что...">Я ожидаю интересные задачи, и профессиональный рост. Хочу работать в команде, и приложить свои силы к созданию чего-то масштабного.</textarea>
+				</div>
+			</section>
+			<div class="contaner">
+				<button class="submit-btn">Готово</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
